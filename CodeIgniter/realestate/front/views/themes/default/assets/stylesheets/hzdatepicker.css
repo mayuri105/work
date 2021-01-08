@@ -1,0 +1,105 @@
+.nav-arrow {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    height: 100%;
+    width: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    background: #fff;
+    color: #e74c3c;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+}
+.nav-arrow {
+    opacity: 0;
+}
+.nav-arrow.arrow-left {
+    left: 0;
+}
+.nav-arrow.arrow-left i.fa {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.nav-arrow.arrow-right {
+    right: 0;
+}
+.hz-date-picker-outer {
+    width: 100%;
+    /*min-height: 95px;*/
+    max-height: 95px;
+    padding: 5px 0;
+    overflow: hidden;
+    /*overflow-x: auto;*/
+}
+.nav-arrow:hover {
+    opacity: 1 !important;
+}
+.hz-date-picker-inner {
+    width: 3800px;
+    padding-left: 5px;
+}
+.hz-date-picker-item.active, .hz-date-picker-item:hover {
+    -webkit-transform: scale(1.15);
+    background: #EF7351;
+    border: 1px solid #EF7351;
+}
+.hz-date-picker-item {
+    width: 65px;
+    height: 65px;
+    font-family: "proxima-nova";
+    padding: 0px;
+    margin: 0 2px;
+    background: #fff;
+    cursor: pointer;
+    float: left;
+    -webkit-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+    border: 1px solid #FAE8E6;
+}
+.hz-date-picker-item.active label, .hz-date-picker-item:hover label {
+    color: #fff;
+}
+.hz-date-picker-item label {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #EF7351;
+    margin: 0;
+    font-weight: normal !important;
+}
+.form-group label {
+    font-weight: normal;
+}
+.hz-month, .hz-day {
+    font-size: 12px !important;
+    padding: 0 !important;
+}
+.nav-arrow.arrow-right i.fa {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.hz-date-picker-item.active label, .hz-date-picker-item:hover label {
+    color: #fff;
+}
+.hz-date-picker-item label {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #EF7351;
+    margin: 0;
+    font-weight: normal !important;
+}
+.hz-date {
+    font-size: 29px !important;
+    font-weight: bold !important;
+    padding: 0 !important;
+    line-height: 1;
+}

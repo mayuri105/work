@@ -1,0 +1,1 @@
+This is CodeIgniter project folder. 

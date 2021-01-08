@@ -1,0 +1,505 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"o",
+				"onclick	Attr"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"co",
+				"container"
+			],
+			[
+				"t",
+				"table"
+			],
+			[
+				"pr",
+				"printer_abort"
+			],
+			[
+				"cust",
+				"customer_id"
+			],
+			[
+				"i",
+				"id	Attr"
+			],
+			[
+				"fa",
+				"fade"
+			],
+			[
+				"s",
+				"script"
+			],
+			[
+				"if",
+				"iframe	Tag"
+			],
+			[
+				"min",
+				"min_amount"
+			],
+			[
+				"d",
+				"div	Tag"
+			],
+			[
+				"add_st",
+				"pspell_add_to_session"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"h",
+				"href	Attr"
+			],
+			[
+				"error",
+				"error_reporting"
+			],
+			[
+				"drie",
+				"driver_detail"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"prin",
+				"print_r"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "package",
+		"selected_items":
+		[
+			[
+				"package",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 488.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/xampp/htdocs/krafty/admin/application/config/config.php",
+		"/D/xampp/htdocs/labhchar/admin/config/config.php",
+		"/D/xampp/htdocs/krafty/admin/menu.php",
+		"/D/xampp/htdocs/mayuri/menua/menu_usage.php",
+		"/D/xampp/htdocs/mayuri/menua/assets/css/simple_menu.css",
+		"/D/xampp/htdocs/mayuri/menua/assets/css/amms.css",
+		"/D/xampp/htdocs/mayuri/menua/index.php",
+		"/D/xampp/htdocs/krafty/admin/add-careers.php",
+		"/D/xampp/htdocs/mayuri/menua/include/amms.class.php",
+		"/D/xampp/htdocs/mayuri/menua/include/amms.processor.php",
+		"/D/xampp/htdocs/mayuri/menua/include/example_db.class.php",
+		"/D/xampp/htdocs/krafty/admin/add-testimonial.php",
+		"/D/xampp/htdocs/admintem/HTML/form-elements.html",
+		"/D/xampp/htdocs/krafty/admin/add-work-slider.php",
+		"/D/xampp/htdocs/krafty/admin/add-work.php",
+		"/D/xampp/htdocs/krafty/admin/inc/menu.php",
+		"/D/xampp/htdocs/krafty/admin/work-slider.php",
+		"/D/xampp/htdocs/mayuri/menu/amms_application/menu_preview.php",
+		"/D/xampp/htdocs/mayuri/menu/amms_application/menu_usage.php",
+		"/D/xampp/htdocs/mayuri/menu/amms_application/index.php",
+		"/D/xampp/htdocs/krafty/admin/edit-slider.php",
+		"/D/xampp/htdocs/krafty/admin/view-slider.php",
+		"/D/xampp/htdocs/krafty/admin/add-slider.php",
+		"/D/xampp/htdocs/admintem/HTML/modal-boxes.html",
+		"/D/xampp/htdocs/mayuri/menua/menu_preview.php",
+		"/D/xampp/htdocs/mayuri/amms_application/menu_preview.php",
+		"/D/xampp/htdocs/mayuri/amms_application/index.php",
+		"/D/xampp/htdocs/mayuri/amms_application/include/example_db.class.php",
+		"/D/xampp/htdocs/mayuri/amms_application/menu_usage.php",
+		"/D/xampp/htdocs/mayuri/amms_application/include/amms.processor.php",
+		"/D/xampp/htdocs/mayuri/amms_application/include/amms.class.php",
+		"/D/xampp/htdocs/krafty/admin/js/nestable/jquery.nestable.js",
+		"/D/xampp/htdocs/mayuri/menu/amms_application/include/example_db.class.php",
+		"/C/Users/hp/Downloads/scripts-jquery.nestable.js",
+		"/D/xampp/htdocs/krafty/admin/add-category.php",
+		"/D/xampp/htdocs/krafty/admin/js/utility.js",
+		"/D/xampp/htdocs/krafty/admin/add-clients.php",
+		"/D/xampp/htdocs/krafty/admin/inc/header.php",
+		"/D/xampp/htdocs/krafty/admin/css/root.css",
+		"/D/xampp/htdocs/krafty/admin/view-careers.php",
+		"/D/xampp/htdocs/krafty/admin/view-testimonial.php",
+		"/D/xampp/htdocs/krafty/admin/view-clients.php",
+		"/D/xampp/htdocs/mayuri/alliance/user-forms-nestable.html",
+		"/D/xampp/htdocs/krafty/admin/view-category.php",
+		"/D/xampp/htdocs/krafty/admin/js/nestable/nestable.css",
+		"/D/xampp/htdocs/krafty/admin/css/plugin/bootstrap-wysihtml5/nestable.css",
+		"/D/xampp/htdocs/mayuri/alliance/assets/skin/default_skin/css/theme.css",
+		"/D/xampp/htdocs/krafty/admin/menusetting.php",
+		"/D/xampp/htdocs/krafty/admin/js/plugins.js",
+		"/D/xampp/htdocs/krafty/admin/view-work.php",
+		"/D/xampp/htdocs/mayuri/add-remove-row.html",
+		"/D/xampp/htdocs/krafty/admin/view-pages.php",
+		"/D/xampp/htdocs/krafty/admin/add-pages.php",
+		"/D/xampp/htdocs/krafty/admin/add-banner.php",
+		"/D/xampp/htdocs/krafty/admin/about-page.php",
+		"/D/xampp/htdocs/krafty/admin/add-service.php",
+		"/D/xampp/htdocs/krafty/admin/view-service.php",
+		"/D/xampp/htdocs/krafty/admin/process-page.php",
+		"/D/xampp/htdocs/krafty/admin/view-banner.php",
+		"/D/xampp/htdocs/opencart/admin/controller/catalog/category.php",
+		"/D/xampp/htdocs/opencart/admin/model/catalog/category.php",
+		"/D/xampp/htdocs/admintem/HTML/text-editors.html",
+		"/D/xampp/htdocs/admintem/HTML/tabs.html",
+		"/D/xampp/htdocs/admin/login.php",
+		"/D/xampp/htdocs/admin/view-banner.php",
+		"/D/xampp/htdocs/admin/add-service.php",
+		"/D/xampp/htdocs/admin/inc/menu.php",
+		"/D/xampp/htdocs/admin/add-work.php",
+		"/D/xampp/htdocs/admin/process-page.php",
+		"/D/xampp/htdocs/admin/view-careers.php",
+		"/D/xampp/htdocs/admin/view-clients.php",
+		"/D/xampp/htdocs/admin/view-service.php",
+		"/D/xampp/htdocs/admin/view-setting.php",
+		"/D/xampp/htdocs/admin/view-testimonial.php",
+		"/D/xampp/htdocs/admin/add-testimonial.php",
+		"/D/xampp/htdocs/admin/add-setting.php",
+		"/D/xampp/htdocs/admin/add-clients.php",
+		"/D/xampp/htdocs/admin/add-careers.php",
+		"/D/xampp/htdocs/admin/add-banner.php",
+		"/D/xampp/htdocs/admin/about-page.php",
+		"/D/xampp/htdocs/admin/view-work.php",
+		"/D/xampp/htdocs/admin/index.php",
+		"/D/xampp/htdocs/admin/inc/header.php",
+		"/D/xampp/htdocs/admin/careers-page.php",
+		"/D/xampp/htdocs/admin/add-pages.php",
+		"/D/xampp/htdocs/admin/layouts.html",
+		"/D/xampp/htdocs/admin/inc/footer.php",
+		"/D/xampp/htdocs/admin/modal-boxes.html",
+		"/D/xampp/htdocs/admin/data-table.html",
+		"/D/xampp/htdocs/admin/service-page.php",
+		"/D/xampp/htdocs/admin/index.html",
+		"/D/xampp/htdocs/index.php",
+		"/D/xampp/htdocs/labhchar/front/modules/bid_detail/controllers/bid_detail.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/bid_detail/bid_detail.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/assets/stylesheets/main_style.css",
+		"/D/xampp/htdocs/labhchar/front/modules/bid_detail/models/biddetail_models.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/bid_detail/lbid_detail.php",
+		"/D/xampp/htdocs/labhchar/front/modules/bid/controllers/Bid.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/common/bid.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/bid/lates-members.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/bid/property-show.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/bid/property.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/property/last-rent.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/index.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/category-new.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/index 3.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/product-new.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/index 4.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/category-new 2.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/product-new 2.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/product-new 3.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/index 5.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/category-new 3.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/index 2.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/product.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/category.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/p.php",
+		"/D/xampp/htdocs/labhchar/front/modules/appointment/controllers/Appointment.php",
+		"/C/Users/hp/AppData/Local/Temp/fz3temp-1/httpd.conf",
+		"/D/xampp/htdocs/dstore/admin/config/database.php",
+		"/D/xampp/htdocs/labhchar/front/modules/bid/models/Bid_model.php",
+		"/D/xampp/htdocs/labhchar/front/modules/appointment/models/Appointment_models.php",
+		"/D/xampp/htdocs/deliveryapp/admin/config/database.php",
+		"/D/xampp/htdocs/deliveryapp/deliveryapp/admin/config/database.php",
+		"/D/xampp/htdocs/deliveryapp/deliveryapp/admin/config/config.php",
+		"/D/xampp/htdocs/labhchar/front/views/themes/default/template/common/footer.php",
+		"/D/xampp/htdocs/labhchar/admin/views/themes/default/template/bid_table/edit.php",
+		"/D/xampp/htdocs/labhchar/admin/modules/bid_table/controllers/Bid_table.php"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"icon",
+			"left",
+			"insert",
+			"add_menu_items",
+			"menu_items",
+			"menu_item",
+			"lft",
+			">\n",
+			"addmore",
+			"                  \n",
+			"remove",
+			"jquery",
+			"nestable-output",
+			"nestable",
+			"Serialised Output (per list)",
+			"getList",
+			"getlist",
+			"profile2",
+			"mcat",
+			"Pills",
+			"FOOTER",
+			"reserved",
+			"bid",
+			"Contact Us",
+			"STORE INFORMATION",
+			"company info",
+			"Contact Us",
+			"Contact Us ",
+			"loadmembid",
+			"getBidWinner",
+			"mainSpinner",
+			"mainSpinner1",
+			"BID TIME OVER",
+			"ID TIME OVER",
+			"BID STARTS IN",
+			"Pagination",
+			"BID STARTS IN",
+			"todaysbidpro",
+			"date",
+			"correct",
+			"date",
+			"correct",
+			"date",
+			"format",
+			"date",
+			"yy",
+			"YY",
+			"date",
+			"format",
+			"date",
+			"format",
+			"y-m-d",
+			"y",
+			"date",
+			"format",
+			"date",
+			"']",
+			"['",
+			"property-show",
+			"APPPATH",
+			" GOING ON",
+			" TIME OVER",
+			"time",
+			"GOING",
+			"going",
+			"hr",
+			"getbidended",
+			"BID STARTS IN",
+			"sidebar_ads",
+			"ads here",
+			"hr",
+			"BID IS GOING ON",
+			"login",
+			"endforeach",
+			"todaysbidpro",
+			" Property",
+			" Property listing ",
+			"<!-- Property listing 1 -->",
+			"col-md-4",
+			"col-md-8",
+			"col-md-8 slide_sec",
+			"                        <",
+			"properties",
+			"textarea",
+			"siteurl",
+			"bsite_url",
+			"site_url",
+			"$autoload['libraries'] = array('database');",
+			"$data",
+			"250px 18px",
+			"a.18",
+			"18",
+			".navbar-static-side ul li a:hover, .navbar-static-side ul li a:focus",
+			"style",
+			"$_GET",
+			"sw",
+			"php",
+			"base",
+			"menu",
+			"root",
+			"mcgrocery",
+			"http://demo.multicitygrocery.com",
+			"html",
+			"bootstrap-grid.html",
+			"tables",
+			"localbanyaclone",
+			"format",
+			"yyyy/dd/mm",
+			"yyyy/",
+			"format",
+			"formet",
+			"Name",
+			"th",
+			"login",
+			"Login",
+			"login",
+			"order",
+			"Order",
+			"order",
+			"Order",
+			"order",
+			"Order",
+			"order",
+			"Driver",
+			"order"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"jignesh",
+			"http://jignesh.multicitygrocery.com",
+			"deliveryclone"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 228.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

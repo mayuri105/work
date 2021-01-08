@@ -1,0 +1,54 @@
+/*
+ .form-field {
+	display: inline-block;
+	padding-right: 10px;
+	height: 100px;
+}
+ .form-container{
+	width: 90%;
+	max-width: 600px;
+	height: 600px;
+	margin: 0 auto;
+	border: 0;
+	display: block;
+}
+ .form-container input ,.form-container select{
+	font-family: "Noto Sans", Arial, sans-serif;
+	background-color: #ffffff;
+	outline: 1px solid #cccccc;
+	border-radius: 0px;
+	border: 0;
+	height: 40px;
+	width: 240px;
+	margin: 10px 0px;
+}
+
+ .form-container form {
+text-align: left;
+display: inline-block;
+width: auto;
+}
+ .form-container  button{
+float: none;
+display: block;
+}
+.form-container .alert-danger{
+color: red
+}
+.form-container .alert-success{
+color: green
+}*/
+.delivery-pickup span.delivery-select {
+    margin-right: 55px !important;
+}
+.join{
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    border: 0;
+    display: block;
+}
+input#BusinessName,input#email,input#phone,input#streetaddress,select#state,select#city,input#zipcode {
+    width: 100%;
+}
