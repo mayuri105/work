@@ -1,0 +1,4 @@
+[03-Mar-2020 21:31:34 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home2/eyskovut/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home2/eyskovut/public_html/config/database.php on line 18
