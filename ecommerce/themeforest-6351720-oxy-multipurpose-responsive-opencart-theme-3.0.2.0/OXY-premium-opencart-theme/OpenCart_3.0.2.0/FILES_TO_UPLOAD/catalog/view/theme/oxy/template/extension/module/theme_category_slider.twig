@@ -1,0 +1,59 @@
+
+<style type="text/css">
+.category-slider-content{{ module }} {
+	background-color: {{ module_bg_color }};
+}
+.category-slider-content{{ module }} h2, .category-slider-content{{ module }} .inline-name {
+	color: {{ module_title_color }};
+}
+#content .category-slider-content{{ module }} h2:before {
+	border-bottom-color: {{ module_title_border_color }};
+}
+.category-slider-content{{ module }} .category-slider-subtitle {
+	color: {{ module_subtitle_color }};
+}
+</style>
+
+<div id="category-slider{{ module }}" class="panel panel-default panel-inline module-style-2 full-width-container">
+<div class="category-slider-content{{ module }} panel-inline-content row">
+{% if category_slider.title !='' %}
+<div class="category-slider-title panel-inline-title">
+<h2>{{ category_slider.title }}</h2>
+{% if category_slider.subtitle !='' %}
+  <div class="category-slider-subtitle panel-inline-subtitle subtitle">{{ category_slider.subtitle }}</div>
+{% endif %}
+</div>
+{% endif %}
+
+  {% if category_slider.title !='' %}
+  <div class="panel-inline-items mgrb">
+  {% else %}
+  <div class="panel-inline-items full-width">
+  {% endif %}
+  
+  <div class="category-slider-items{{ module }}">  
+    {% for category in categories %}
+    <div class="category-slider-item"> 
+      {% if category.thumb %}
+      <div class="image"><a href="{{ category.href }}"><img src="{{ lazy_load_placeholder }}" data-src="{{ category.thumb }}" alt="{{ category.name }}" class="lazyload" /></a></div>
+      {% endif %}
+      <a class="inline-name" href="{{ category.href }}">{{ category.name }}</a>
+    </div>
+    {% endfor %}
+  </div>
+  
+  </div>
+  
+</div>
+</div>
+<script type="text/javascript"><!--
+$('.category-slider-items{{ module }}').owlCarousel({
+	items: '{{ ca_id }}',
+	itemsMobile : [479, 2],
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>

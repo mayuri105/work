@@ -1,0 +1,237 @@
+* {margin:0px auto; padding:0px;}
+body {font-family:Arial, Helvetica, sans-serif; font-size:12px; /*background-color:#2250A5;*/ background-color:#fff;}
+
+a {outline:none; text-decoration:none;}
+.small {font-size:11px;}
+.b-r-none {border-right:0 !important;}
+.calendar {background:url(../images/calendar.png) no-repeat; width:16px; height:16px; cursor:pointer; border:0;}
+
+
+h1,h2,h3,h4,h5,h6 {padding:0px; margin:0px;}
+h1 {font-size:15px; color:#fff; text-transform:uppercase; padding:13px 0 0 20px;}
+
+#header {/*background:url(../images/header-bg.jpg) repeat-x left top #FFFFFF; height:100px;*/
+    border-bottom: 4px solid #000;
+    border-radius: 15px 15px 0 0;
+    display: block;
+    float: left;
+    width: 100%;
+}
+#tbl-header { background-color:#F4F4F4;
+    float: left;
+    width: 100%;}
+.logo {/*padding-top:20px;  padding-left:10px;*/}
+.tbl-toprightpaanel {/*background:url(../images/top-right-bg.jpg) no-repeat;*/ height:27px; margin-right:5px; background-color: #DADADA;
+    border-radius: 0 0 8px 8px;}
+	.tbl-toprightpaanel a {color:#414141; line-height:22px; font-size:12px;}
+	.tbl-toprightpaanel a:hover {color:#F00808;}
+	.lnk-setting {background:url(../images/icon-settings.jpg) no-repeat; padding-left:22px;}
+	.lnk-logout {background:url(../images/icon-logout.jpg) no-repeat; padding-left:22px;}
+	
+	.welcometxt {color:#000; font-weight:bold; font-size:14px;}
+
+.login-box { background: url(../images/login-bg.png) no-repeat left top;  float: right; height: 79px; 
+/*margin: -45px 0px 0px 0px;*/ top:63px;position: absolute; right: 25px; width: 266px; z-index: 0; color:#fff; text-align:center; position:absolute;}
+.login-box a { text-decoration:none; color:#fff; font-size:14px; line-height:40px;}
+
+.menubg {/*background:url(../images/menubg.jpg) repeat-x;*/ background:url(../images/nav-bg.jpg) repeat-x; height:47px; position:relative; z-index:0;}
+
+/*.left-col {width:223px;}
+.full-col {width:740px;}*/
+
+.box-container {background-color:#fff; width:100%;}
+
+.table-long {background-color:#fff; font-size:12px; border: 1px solid #CCCCCC;}
+	.table-long th {padding:0 5px; background:url(../images/th-bg.jpg) repeat-x #DFDFDF; color:#000000; height:42px; font-size:12px;}
+	.table-long td {padding:8px 5px; border-bottom:#fff 2px solid; border-right:#fff 2px solid;}
+	.table-long .odd {background-color:#F7F7F0;}
+	.table-long img {border:0;}
+	.table-long td a {color:#226886;}
+	.table-long td a:hover {color:#333;}
+
+.table-long1 {background-color:#fff; font-size:11px;}
+	.table-long1 th {padding:0 5px; background:url(../images/th-bg.jpg) repeat-x #DFDFDF; color:#2c6d9d; height:42px; font-size:12px;}
+	.table-long1 td {padding:8px 5px; }
+	.table-long1 .odd {background-color:#F7F7F7;}
+	.table-long1 img {border:0;}
+	.table-long1 td a {color:#226886;}
+	.table-long td a:hover {color:#333;}
+
+.table-longSubadmin { font-size:11px;}
+	.table-longSubadmin th {padding:0 5px; background:url(../images/th-bg.jpg) repeat-x #DFDFDF; color:#2c6d9d; height:42px; font-size:12px;}
+	.table-longSubadmin td {padding:8px 5px; }
+	.table-longSubadmin .odd {background-color:#F7F7F7;}
+	.table-longSubadmin img {border:0;}
+	.table-longSubadmin td a {color:#226886;}
+	.table-longSubadmin td a:hover {color:#333;}			
+
+.stdButton {background:url(../images/btn-bg.jpg) repeat-x; height:33px; color:#fff; display:inline-block; padding:0 15px; text-align:center; line-height:30px; font-weight:bold; border:0; cursor:pointer;}
+	.stdButton:hover {color:#FFFFFF;}
+		
+.pagination {color:#949494; font-size:12px;}
+	.pagination a {color:#949494; margin:0 1px; font-weight:bold;}
+	.pagination a:hover {color:#2f6fb5;}
+
+.tbl-title {background:url(../images/title-bg.jpg) repeat-x; height:45px;}
+
+.tbl-box {width:100%;}
+	.tbl-box h4 {background: none repeat scroll 0 0 #3A4043; font-weight: bold; padding: 10px; text-transform: uppercase;}
+
+.graybg {background-color:#dcdcdc; padding:12px;}
+.dashboard-container td {pad ding:12px;}	
+.dashboard-inner-tbl {border:1px solid #D4D4D4; color:#474747; font-size:12px;}
+.dashboard-inner-tbl th {background:url(../images/th-bg1.jpg) repeat-x; padding:10px;}
+.dashboard-inner-tbl td {padding:10px;}
+.oddbg {background:#efefef url(../images/odd-bg.jpg) center bottom repeat-x;}
+.evenbg {background:#f6f6f6 url(../images/even-bg.jpg) center bottom repeat-x;}
+.iconlink {margin-right:8px; float:left;}
+.dashboard-inner-tbl a {color:#474747;}
+.dashboard-inner-tbl a:hover {color:#F00808;}	
+/* /////////////////////////// */
+.textbox{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	height: 22px;
+	width: 244px;
+	border: 1px solid #c9d3dd;
+}	
+
+.textarea{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	border: 1px solid #c9d3dd;
+	resize:none;
+}
+
+.successMsg {
+	font-size		: 10pt; letter-spacing: 1px;
+	font-weight		: Bold;
+	color			: #424242;
+	font-family		: Verdana;
+}
+.errorMsg {
+	font-size		: 10pt; letter-spacing: 1px;
+	font-weight		: Bold;
+	color			: #ff0000;
+	font-family		: Verdana;
+}
+
+.actionLink, td.actionLink{
+	font-size 		: 8pt;
+	color 			: 000000;
+	font-weight		: Bold;
+}
+a.actionLink:link   	{ text-decoration: none; color : #000000; }
+a.actionLink:visited 	{ text-decoration: none; color : #000000; }
+a.actionLink:hover		{ text-decoration: underline; color : #990000; }
+
+.redmsg, .error{
+	color:#FF0000;
+	font-size		: 8pt; letter-spacing: normal;
+	font-weight		: Bold;
+	font-family		: Verdana;
+}
+
+.boadytextblack {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+}
+
+.boadytextwhite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
+/*  class for paginations */
+.pageLink, td.pageLink{
+	font-size 		: 8pt;
+	color 			: #0066CC;
+
+	font-weight		: normal;
+}
+a.pageLink:link   	{ text-decoration: none; color : #0066CC; }
+a.pageLink:visited 	{ text-decoration: none; color : #0066CC; }
+a.pageLink:hover	{ text-decoration: underline; color : #174F87; }
+
+.activePage{
+	font-size 		: 8pt;
+	color 			: #cc0e0e;
+
+	font-weight		: bold;
+}
+.disabledText
+{
+	font-size 		: 8pt;
+	color 			: #000000;
+	font-weight		: normal;
+}/*  class for paginations */
+.style6 {
+	color:#000000;
+	font-size		: 18px; letter-spacing: normal;
+	font-weight		: Bold;
+	font-family		: Verdana;
+	text-align		: justify;
+}
+
+
+/* /////////////////////////// */
+ol {
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+}
+
+ol.sortable, ol.sortable ol {
+	margin: 0 0 0 25px;
+	padding: 0;
+	list-style-type: none;
+}
+
+ol.sortable {
+	margin: 4em 0;
+}
+
+.sortable li {
+	margin: 7px 0 0 0;
+	padding: 0;
+}
+
+.sortable li div  {
+	border: 1px solid black;
+	padding: 3px;
+	margin: 0;
+	cursor: move;
+}
+.imgAction{cursor:default;}
+
+
+.table-long h5 {color:#3765bc; /*padding:15px 0; margin-bottom:15px;*/ font-weight:bold; font-size:16px;}
+.memberHead {background-color:#2E70AD !important; color:#FFFFFF !important; border-right:none !important;}
+.memberHead h5 {color:#FFFFFF !important;}
+
+
+.row-personal label {
+    float: left;
+    padding-bottom: 6px;
+    width: 30%;
+}
+tr.tabTr td {background-color:#243C85; border-right:1px solid #FFFFFF;}
+tr.tabTr td.sel {background-color:#3A6AC3;}
+tr.tabTr td a, tr.tabTr td.sel {color:#FFFFFF;}
+
+.input-calendar-281 { background: url(../images/input-calendar-175.png) no-repeat left top; width:175px; height:28px; line-height:28px; border:none; outline:none; padding:0px 2px; font-size:14px;}
+.author-discription h1 {padding-bottom:24px; padding-top:15px; font-size:42px;font-weight:bold; color:#f00808; font-family: 'Raleway', sans-serif; line-height:42px; text-transform:none;}
+.author-discription h1 span {color: rgb(66, 66, 66); font-weight: normal;}

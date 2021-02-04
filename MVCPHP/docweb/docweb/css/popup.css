@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+.button{ display: inline-block; background: #107FC9 none repeat scroll 0% 0%; padding:5px 10px; z-index: 0; color: #fff; }
+.popup{ padding: 10px 10px 35px; background: #fff; z-index: 999; display: none; position: absolute; right: 0; }
+.close{ font-weight: bold;  float: right; position: absolute; bottom: 5px; right: 10px; }
+.overlay{ z-index:5; display: block; position:fixed; width: 100%; height: 100%; }
+body{ background: #930; font: 16px/150% Verdana, Geneva, sans-serif;}
+form{ background: #eee; padding: 10px; }
+form p{ padding: 5px 0;}
+form .title{ min-width: 100px; display: inline-block; }
+form input[type=text], form input[type=password]{ border: 1px solid #fff; padding: 5px;}
+.clear{ clear: both;}
+.buttonsignup{ display: inline-block; background: #107FC9 none repeat scroll 0% 0%; padding:5px 10px; z-index: 0; color: #fff; }
+.popupsignup{ padding: 10px 10px 35px; background: #fff; z-index: 999; display: none; position: absolute; right: 0; }

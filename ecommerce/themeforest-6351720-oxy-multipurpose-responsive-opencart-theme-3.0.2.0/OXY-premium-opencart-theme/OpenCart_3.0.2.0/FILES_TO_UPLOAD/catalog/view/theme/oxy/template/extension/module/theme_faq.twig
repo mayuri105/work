@@ -1,0 +1,48 @@
+
+<style type="text/css">
+.faq-block{{ module }} .panel-title {
+	background-color: {{ module_question_bg_color }};
+}
+#content .faq-block{{ module }} .subtitle, #column-left .faq-block{{ module }} .subtitle, #column-right .faq-block{{ module }} .subtitle {
+	color: {{ module_question_color }};
+}
+
+.faq-block{{ module }} a:hover .panel-title {
+	background-color: {{ module_question_bg_color_hover }};
+}
+#content .faq-block{{ module }} .subtitle:hover, #column-left .faq-block{{ module }} .subtitle:hover, #column-right .faq-block{{ module }} .subtitle:hover {
+	color: {{ module_question_color_hover }};
+}
+.faq-block{{ module }} .subtitle {
+	transition: all 0.15s ease-in 0s;
+}
+.faq-block{{ module }} .panel-collapse {
+	background-color: {{ module_answer_bg_color }};
+    color: {{ module_answer_color }};
+}
+</style>
+{% if faq.title !='' %}
+<div class="panel panel-default faq-block-heading full-width-container">
+  <div class="panel-heading module-heading"><h2>{{ faq.title }}</h2></div>
+</div>
+{% endif %}
+
+<div class="panel-group faq-block faq-block{{ module }} full-width-container" id="accordion{{ module }}" role="tablist" aria-multiselectable="true">
+
+{% set x = 0 %}
+{% for section in sections %}
+  <div class="panel panel-default">
+    <a role="button" data-toggle="collapse" data-parent="#accordion{{ module }}" href="#collapse{{ x }}" aria-expanded="true" aria-controls="collapse{{ x }}">
+    <div class="panel-title subtitle" role="tab" id="heading{{ x }}">
+          {{ section.faq_question }}
+    </div>
+    </a>
+    <div id="collapse{{ x }}" class="panel-collapse {{ x == 0 ? 'collapse in' : 'collapse' }}" role="tabpanel" aria-labelledby="heading{{ x }}">
+      <div class="panel-body">
+        {{ section.faq_answer }}
+      </div>
+    </div>   
+  </div>
+{% set x = x + 1 %}
+{% endfor %}
+</div>

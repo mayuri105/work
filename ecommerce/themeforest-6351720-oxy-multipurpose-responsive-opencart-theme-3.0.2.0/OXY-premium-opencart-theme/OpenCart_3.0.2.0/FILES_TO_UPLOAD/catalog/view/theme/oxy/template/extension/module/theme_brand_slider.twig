@@ -1,0 +1,72 @@
+
+<style type="text/css">
+.brand-slider-content{{ module }} {
+	background-color: {{ module_bg_color }};
+}
+.brand-slider-content{{ module }} h2, .brand-slider-content{{ module }} .inline-name {
+	color: {{ module_title_color }};
+}
+#content .brand-slider-content{{ module }} h2:before {
+	border-bottom-color: {{ module_title_border_color }};
+}
+.brand-slider-content{{ module }} .brand-slider-subtitle {
+	color: {{ module_subtitle_color }};
+}
+{% if brands_display_style =='1' %}
+.panel-inline-content .brand-slider-item .inline-name {
+	display: none;
+}
+{% else %}
+.panel-inline-content .brand-slider-item .image {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+{% endif %}
+</style>
+
+<div id="brand-slider" class="panel panel-default panel-inline module-style-2 full-width-container">
+<div class="brand-slider-content{{ module }} panel-inline-content row">
+{% if brand_slider.title !='' %}
+<div class="brand-slider-title panel-inline-title">
+<h2>{{ brand_slider.title }}</h2>
+{% if brand_slider.subtitle !='' %}
+<div class="brand-slider-subtitle panel-inline-subtitle subtitle">{{ brand_slider.subtitle }}</div>
+{% endif %}
+</div>
+{% endif %}
+{% if brand_slider.title !='' %}
+<div class="panel-inline-items mgrb">
+{% else %}
+<div class="panel-inline-items full-width">
+{% endif %}
+<div class="brand-slider-items{{ module }}">  
+{% if manufacturers %}
+{% for manufacturer in manufacturers %}
+    <div class="brand-slider-item style-{{ brands_display_style }}">
+          <a href="{{ manufacturer.href }}">
+          {% if manufacturer.image %}
+          <div class="image"><img src="{{ lazy_load_placeholder }}" data-src="{{ manufacturer.image }}" title="{{ manufacturer.name }}" alt="{{ manufacturer.name }}" class="lazyload" /></div>
+          {% else %}
+          <div class="image"><i class="fa fa-camera"></i></div>
+          {% endif %}
+          <div class="inline-name">{{ manufacturer.name }}</div>
+          </a>  
+    </div>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$('.brand-slider-items{{ module }}').owlCarousel({
+	items: '{{ ca_id }}',
+	itemsMobile : [479, 2],
+	autoPlay: 5000,
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>

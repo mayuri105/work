@@ -1,0 +1,74 @@
+/* Header */
+.top-header {
+	background-color: #f7931e !important;
+}
+.top-header .header-contact li {
+	color: #FFF !important;
+}
+.top-header .header-dropdown li a i {
+	color: #FFF !important;
+}
+.top-header .header-dropdown li {
+	color: #FFF !important;
+}
+.top-header .header-dropdown li:hover i {
+	color: #FFF !important ;
+}
+.top-header .header-contact li i {
+	color: #FFF !important;
+}
+.btn-solid {
+	border: 2px solid #2940f0 !important;
+	background-image: linear-gradient(30deg, #0071bc 50%, transparent 50%) !important;
+}
+
+.menucontent{
+	background-color: #f5f5f5;
+	padding: 10px;
+}
+.menucontent ul > li{
+	background-color: #f5f5f5;
+	
+}
+
+/*Footer*/
+.light-layout {
+	background-color: #0071bc !important;
+}
+.sub-footer {
+	background-color: #f7931e !important;
+}
+.footer-content{
+	color: #FFF !important;
+}
+.footer-theme .sub-title h4 {
+	color: #FFF !important;
+}
+.footer-theme .sub-title li a {
+	position: relative;
+	color: #FFF;
+}
+.footer-theme .sub-title li {
+	color: #FFF;
+}
+.sub-footer p {
+	color: #FFF;
+}
+.faq-section .accordion.theme-accordion .card :not(:first-of-type):not(:last-of-type), .faq-section .accordion.theme-accordion .card .theme-accordion .card:first-of-type {
+	border-bottom: 0px solid #FFF;
+}
+.faq-section .accordion.theme-accordion .card .card-header button[aria-expanded="true"]::before {
+	display: none !important;
+}
+.tap-top {
+	background: #f7931e !important;
+}
+.footer-theme .sub-title li a::before {
+	background-color: #f7931e !important;
+}
+.footer-theme .sub-title .contact-list li a:hover {
+	color: #FFF !important;
+}
+.footer-theme .sub-title .contact-list li:hover {
+	color: #FFF !important;
+}

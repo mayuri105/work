@@ -1,0 +1,132 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-theme-banner" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-theme-banner" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_name }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-banner">{{ entry_banner }}</label>
+            <div class="col-sm-10">
+              <select name="banner_id" id="input-banner" class="form-control">
+                {% for banner in banners %}
+                {% if banner.banner_id == banner_id %}
+                <option value="{{ banner.banner_id }}" selected="selected">{{ banner.name }}</option>
+                {% else %}
+                <option value="{{ banner.banner_id }}">{{ banner.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="width" value="{{ width }}" placeholder="{{ entry_width }}" id="input-width" class="form-control" />
+              {% if error_width %}
+              <div class="text-danger">{{ error_width }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-height">{{ entry_height }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="height" value="{{ height }}" placeholder="{{ entry_height }}" id="input-height" class="form-control" />
+              {% if error_height %}
+              <div class="text-danger">{{ error_height }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-banner_view">{{ entry_banner_view }}</label>
+            <div class="col-sm-10">
+              <select name="banner_view" id="input-banner_view" class="form-control">
+                <option value="grid" {% if banner_view == 'grid' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_view_grid }}</option>
+				<option value="slider" {% if banner_view == 'slider' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_view_slider }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-pr_id">{{ entry_banner_per_row }}</label>
+            <div class="col-sm-10">
+              <select name="pr_id" id="input-pr_id" class="form-control">
+              {% for i in 1..5 %} 
+                <option value="{{ i }}" {% if pr_id == i %}{{ "selected=\"selected\"" }}{% endif %}>{{ i }}</option>
+              {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-title_position">{{ entry_title_position }}</label>
+            <div class="col-sm-10">
+              <select name="title_position" id="input-title_position" class="form-control">
+                <option value="title-bottom-center" {% if title_position == 'title-bottom-center' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_bc }}</option>
+				<option value="title-bottom-left" {% if title_position == 'title-bottom-left' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_bl }}</option>
+                <option value="title-bottom-right" {% if title_position == 'title-bottom-right' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_br }}</option>
+                <option value="title-center" {% if title_position == 'title-center' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_c }}</option>
+				<option value="title-left" {% if title_position == 'title-left' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_l }}</option>
+                <option value="title-right" {% if title_position == 'title-right' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_r }}</option>
+                <option value="title-top-center" {% if title_position == 'title-top-center' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_tc }}</option>
+				<option value="title-top-left" {% if title_position == 'title-top-left' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_tl }}</option>
+                <option value="title-top-right" {% if title_position == 'title-top-right' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_position_tr }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-title_slide_status">{{ entry_slide }}</label>
+            <div class="col-sm-10">
+              <select name="title_slide_status" id="input-title_slide_status" class="form-control">
+                <option value="1" {% if title_slide_status == '1' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_yes }}</option>
+				<option value="0" {% if title_slide_status == '0' %}{{ "selected=\"selected\"" }}{% endif %}>{{ text_no }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}

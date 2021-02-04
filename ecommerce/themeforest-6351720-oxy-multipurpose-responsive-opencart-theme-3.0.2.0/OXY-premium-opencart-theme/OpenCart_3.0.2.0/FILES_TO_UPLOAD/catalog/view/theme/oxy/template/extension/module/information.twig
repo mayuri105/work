@@ -1,0 +1,10 @@
+<div class="panel panel-default panel-information">
+  <div class="panel-heading"><h2>{{ heading_title }}</h2></div>
+  <ul>
+    {% for information in informations %}
+    <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+    {% endfor %}
+    <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+  </ul>
+</div>

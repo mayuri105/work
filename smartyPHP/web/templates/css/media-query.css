@@ -1,0 +1,65 @@
+/************************************************************************************
+smaller than 980px
+*************************************************************************************/ 
+@media screen and (max-width: 980px) {
+}
+/************************************************************************************
+smaller than 800px
+*************************************************************************************/
+@media screen and (max-width: 800px) {
+body { margin:10px!important;}	
+.main-page { width:100%;}
+.navbar-inverse .brand { display:block!important;}
+.navbar .nav > li {background:none!important;}
+.navbar .nav { background:#ffffff;margin-right:0!important; width:100%;}
+.quickcontact .inputbox1 label { text-align:left;}
+}
+/************************************************************************************
+smaller than 768px
+*************************************************************************************/
+@media screen and (max-width: 768px) {
+
+.contend-hm-in { margin: 0; width:100%;}
+.contain-left-hm-in { padding: 0 0px 0 0;width:100%;}
+.plugin-comunty { margin-top:25px;}
+}
+/************************************************************************************
+smaller than 640px
+*************************************************************************************/
+@media screen and (max-width: 640px) {
+.contend-leftall {width:100%; padding-right:0px; margin-right:0px;}
+.side-right{ width:100%; text-align:center;}
+}
+/************************************************************************************
+smaller than 600px
+*************************************************************************************/
+@media screen and (max-width: 600px) {
+
+}
+/************************************************************************************
+smaller than 568px
+*************************************************************************************/
+@media screen and (max-width: 568px) {
+
+}
+/************************************************************************************
+smaller than 480px
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+.author-img-main { margin-right:0; width: 100%;}
+.author-discription { width:100%;}
+
+.quickcontact .inputbox1 label { float: left; width:100%; text-align:left; padding-bottom:7px;}
+.quickcontact .inputbox1 input, .quickcontact .inputbox1 textarea{ width:100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+}
+/************************************************************************************
+smaller than 320px
+*************************************************************************************/
+@media screen and (max-width: 320px) {
+
+}
+
+@media screen and (max-width: 800px) {
+	.contact_frmrow {clear:both;}
+}

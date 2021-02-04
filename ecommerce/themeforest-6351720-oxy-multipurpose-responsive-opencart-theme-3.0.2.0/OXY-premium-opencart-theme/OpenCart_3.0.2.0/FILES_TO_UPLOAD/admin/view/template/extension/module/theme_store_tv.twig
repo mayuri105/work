@@ -1,0 +1,154 @@
+
+{% if module_bg_color is empty %}{% set module_bg_color = 'FFFFFF' %}{% endif %}
+{% if module_title_color is empty %}{% set module_title_color = '424242' %}{% endif %}
+{% if module_title_border_color is empty %}{% set module_title_border_color = 'F3F3F3' %}{% endif %}
+{% if module_subtitle_color is empty %}{% set module_subtitle_color = 'B6B6B6' %}{% endif %}
+
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-store-tv" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-store-tv" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_name }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-store-tv_title">{{ entry_title }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="store_tv[{{ language.language_id }}][title]" value="{{ store_tv[language.language_id].title ? store_tv[language.language_id].title : '' }}" placeholder="{{ entry_title }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-store-tv_subtitle">{{ entry_subtitle }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="store_tv[{{ language.language_id }}][subtitle]" value="{{ store_tv[language.language_id].subtitle ? store_tv[language.language_id].subtitle : '' }}" placeholder="{{ entry_subtitle }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>    
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-banner">{{ entry_banner }}</label>
+            <div class="col-sm-10">
+              <select name="banner_id" id="input-banner" class="form-control">
+                {% for banner in banners %}
+                {% if banner.banner_id == banner_id %}
+                <option value="{{ banner.banner_id }}" selected="selected">{{ banner.name }}</option>
+                {% else %}
+                <option value="{{ banner.banner_id }}">{{ banner.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="width" value="{{ width }}" placeholder="{{ entry_width }}" id="input-width" class="form-control" />
+              {% if error_width %}
+              <div class="text-danger">{{ error_width }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-height">{{ entry_height }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="height" value="{{ height }}" placeholder="{{ entry_height }}" id="input-height" class="form-control" />
+              {% if error_height %}
+              <div class="text-danger">{{ error_height }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-pr_id">{{ entry_banner_per_row }}</label>
+            <div class="col-sm-10">
+              <select name="pr_id" id="input-pr_id" class="form-control">
+              {% for i in 1..8 %}
+                <option value="{{ i }}" {% if pr_id == i %}{{ "selected=\"selected\"" }}{% endif %}>{{ i }}</option>
+              {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_bg_color">{{ entry_module_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_bg_color" id="module_bg_color" value="{{ module_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_title_color">{{ entry_module_title_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_title_color" id="module_title_color" value="{{ module_title_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_title_border_color">{{ entry_module_title_border_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_title_border_color" id="module_title_border_color" value="{{ module_title_border_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_subtitle_color">{{ entry_module_subtitle_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_subtitle_color" id="module_subtitle_color" value="{{ module_subtitle_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+.color {border:1px solid #CCC;border-radius:2px;margin-top:5px;padding:5px 6px 6px;}
+</style>
+<script type="text/javascript" src="view/javascript/jscolor/jscolor.js"></script>
+{{ footer }}

@@ -1,0 +1,62 @@
+
+<style type="text/css">
+.ei-slider{{ module }}, .ei-slider{{ module }} .ei-slider-large li, .ei-slider{{ module }} .ei-slider-thumbs li {
+	background-color: {{ module_bg_color }};
+}
+.ei-slider{{ module }} .ei-title h2 a {
+	color: {{ module_product_name_color }};
+}
+.ei-slider{{ module }} .ei-title h3 a, .ei-slider{{ module }} .ei-title h4 a .price-old {
+	color: {{ module_product_description_color }};
+}
+.ei-slider{{ module }} .ei-title h4 a {
+	color: {{ module_product_price_color }};
+}
+.ei-slider{{ module }} .ei-slider-thumbs li.ei-slider-element {
+	background-color: {{ module_product_active_border_color }};
+}
+</style>
+
+<div id="product-slider">
+                <div id="ei-slider" class="ei-slider ei-slider{{ module }}">
+                    <ul class="ei-slider-large">
+                    {% for product in products %}
+						<li>
+                        {% if product.thumb %}
+                        <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a></div>
+                        {% endif %}
+                            <div class="ei-title">
+                                <h2><a href="{{ product.href }}">{{ product.name }}</a></h2>
+                                <h3 class="subtitle"><a href="{{ product.href }}">{{ product.description }}</a></h3>                                
+                                <h4><a href="{{ product.href }}">
+                                {% if not product.special %}
+                                {{ product.price }}
+                                {% else %}
+                                <span class="price-new">{{ product.special }} <span class="price-old" style="font-size:16px; text-decoration:line-through">{{ product.price }}</span>
+                                </span>
+                                {% endif %}
+                                </a>
+                                <br /><br /><br />
+                                <a href="{{ product.href }}" class="btn btn-primary hidden-xs hidden-sm">{{ t1o_text_shop_now[lang_id] }}</a>
+                                </h4>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    <ul class="ei-slider-thumbs">
+                        <li class="ei-slider-element">Current</li>
+                    {% for product in products %}
+						<li><a href="#"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a><div class="thumb_arrow"></div></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+</div>
+        <script type="text/javascript">
+            $(function() {
+                $('#ei-slider').eislideshow({
+					autoplay			: true,
+					slideshow_interval	: 5000,
+					titlesFactor		: 0
+                });
+            });
+        </script>

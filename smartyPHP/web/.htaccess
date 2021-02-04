@@ -1,0 +1,71 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+Options +FollowSymlinks
+#Protect against hotlinking
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www.)?nealinfotech.net/alphabet_success/ [nc]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?nealinfotech.net/alphabet_success/ [nc]
+#RewriteRule .*.(gif|jpg|png)$ http://nealinfotech.net/alphabet_success/img/stop_stealing_bandwidth.gif[nc]
+
+#Block bad bots
+SetEnvIfNoCase user-Agent ^FrontPage [NC,OR]
+SetEnvIfNoCase user-Agent ^Java.* [NC,OR]
+SetEnvIfNoCase user-Agent ^Microsoft.URL [NC,OR]
+SetEnvIfNoCase user-Agent ^MSFrontPage [NC,OR]
+SetEnvIfNoCase user-Agent ^Offline.Explorer [NC,OR]
+SetEnvIfNoCase user-Agent ^[Ww]eb[Bb]andit [NC,OR]
+SetEnvIfNoCase user-Agent ^Zeus [NC]
+<limit get="" post="" head="">
+	Order Allow,Deny
+	Allow from all
+	Deny from env=bad_bot
+</limit>
+
+<ifmodule mod_deflate.c="">
+	<filesmatch ".(js|css)$"="">
+		SetOutputFilter DEFLATE
+	</filesmatch>
+</ifmodule>
+
+FileETag MTime Size
+ExpiresActive on
+ExpiresDefault "access plus 86400 seconds"
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+
+#Options All -Indexes
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{HTTP_REFERER} !.*nealinfotech.net/alphabet_success.* [OR]
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
+
+
+# Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !=/favicon.ico
+#RewriteRule ^(.*)$ index.php?nid=$1 [L,QSA]
+
+RewriteEngine On
+ErrorDocument 404 http://nealinfotech.net/alphabet_success/404.html
+RewriteRule ^404\.html$ 404.php
+RewriteRule ^index\.html$ index.php 
+RewriteRule ^blog/([0-9]+)$ index.php?year=$1
+RewriteRule ^blog/([0-9]+)/([0-9]+)$ index.php?year=$1&month=$2
+
+RewriteRule ^contact.html$ contact.php
+RewriteRule ^blog$ blogs.php 
+
+RewriteRule ^blog\_([0-9]+)$ blogs.php?start=$1
+RewriteRule ^blog/([0-9A-Za-z.-]+)\.html$ blog_detail.php?blog_link=$1
+RewriteRule ^blog/category/([0-9A-Za-z.-]+)_([0-9]+)$ blogs.php?cat_link=$1&start=$2
+RewriteRule ^blog/archieve/([0-9A-Za-z.-]+)_([0-9]+)$ blogs.php?arc_link=$1&start=$2
+
+RewriteRule ^about-us\.html$ page.php?pid=3
+RewriteRule ^events\.html$ page.php?pid=5
+RewriteRule ^services\.html$ page.php?pid=6
+RewriteRule ^videos\.html$ page.php?pid=4

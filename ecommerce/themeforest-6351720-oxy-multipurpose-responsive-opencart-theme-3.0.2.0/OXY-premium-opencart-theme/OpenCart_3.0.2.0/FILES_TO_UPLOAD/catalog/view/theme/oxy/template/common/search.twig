@@ -1,0 +1,46 @@
+{% if t1o_header_style == 'header-style-4' or t1o_header_style == 'header-style-5' %}  
+
+<div id="search" class="header-search-bar">
+  <input type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}" class="form-control input-lg" />
+  <button type="button" class="btn btn-default btn-lg"><div class="button-i"><i class="fa fa-search"></i></div></button>
+</div>
+
+{% else %}
+
+<a href="#" data-toggle="modal" data-target="#modal-search" class="btn search-block">
+<div id="search-block" class="buttons-header theme-modal" data-toggle="tooltip" title="{{ text_search }}">
+<div class="button-i"><i class="fa fa-search"></i></div>
+</div>
+</a>
+<div class="modal fade theme-modal" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="modal-search" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      
+      <div id="search" class="input-group">
+        <input type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}" class="form-control input-lg" />
+        <span class="input-group-addon">
+          <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+      
+{% if t1o_header_popular_search_status == 1 %}  
+<div id="popular-search">
+    {{ t1o_text_popular_search[lang_id] }}<br /><br />
+{% for i in 1..20 %}
+{% if t1o_header_popular_search[i][lang_id].word %}                      
+    <a href="index.php?route=product/search&search={{ t1o_header_popular_search[i][lang_id].word }}" class="btn btn-default popular-search-word">
+    {{ t1o_header_popular_search[i][lang_id].word }} 
+    </a>
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}
+      <a href="index.php?route=product/search" class="btn btn-primary advanced-search">{{ t1o_text_advanced_search[lang_id] }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}

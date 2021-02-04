@@ -1,0 +1,164 @@
+{{ header }}
+<div class="container full-width-container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+    
+    <h1>{{ heading_title }}</h1>
+      
+{% if t1o_contact_map_status == 1 %} 
+  <h3>{{ text_location }}</h3>    
+  <div class="contact-map">
+  <div id="map_div"></div>
+  </div>
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key={{ t1o_contact_map_api }}" async="" defer="defer" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//------- Google Maps ---------//
+	// Creating a LatLng object containing the coordinate for the center of the map
+	var latlng = new google.maps.LatLng({{ t1o_contact_map_ll }});
+	 
+	// Creating an object literal containing the properties we want to pass to the map  
+	var options = {  
+		zoom: 15, // This number can be set to define the initial zoom level of the map
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.{{ t1o_contact_map_type }} // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
+	};  
+	// Calling the constructor, thereby initializing the map  
+	var map = new google.maps.Map(document.getElementById('map_div'), options);  
+	
+	// Define Marker properties
+	var image = new google.maps.MarkerImage(
+		//Image file name
+		'catalog/view/theme/oxy/image/map_marker.png',
+		// This marker is 129 pixels wide by 42 pixels tall.
+		new google.maps.Size(57, 76),
+		// The origin for this image is 0,0.
+		new google.maps.Point(0,0),
+		// The anchor for this image is the base of the flagpole at 18,42.
+		new google.maps.Point(30, 76)
+	);
+
+	// Add Marker
+	var marker1 = new google.maps.Marker({
+		position: new google.maps.LatLng({{ t1o_contact_map_ll }}), 
+		map: map,
+		icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+	});	
+	
+	// Add listener for a click on the pin
+	google.maps.event.addListener(marker1, 'click', function() {
+        infowindow1.open(map, marker1);
+	    });
+
+	// Add information window
+	var infowindow1 = new google.maps.InfoWindow({  
+		content:  '<div> </div>'
+	}); 
+	
+});
+</script> 
+{% endif %}
+      
+      <div class="panel panel-default">
+        <div class="panel-body content-padd">
+          <div class="row">
+            
+            <div class="col-sm-4">
+            <div class="contact-details-wrapper">
+            
+            {% if image %}
+            <img src="{{ image }}" alt="{{ store }}" title="{{ store }}" class="img-thumbnail" />
+            <br /><br />
+            {% endif %}
+            
+            <h4>{{ store }}</h4>
+            <address>
+            {{ address }}
+            </address>
+            
+            <h4>{{ text_telephone }}</h4>
+            {{ telephone }}
+            {% if fax %}
+            <br /><br />
+            <h4>{{ text_fax }}</h4>
+            {{ fax }}
+            {% endif %}
+            
+            {% if open %}
+            <h4>{{ text_open }}</h4>
+            {{ open }}
+            {% endif %}
+            
+            {% if comment %}
+            <h4>{{ text_comment }}</h4>
+            {{ comment }}
+            {% endif %}
+            
+            </div>
+            </div>
+            
+            <div class="col-sm-8">
+            <div class="contact-details-wrapper">
+            
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <fieldset>
+          <legend>{{ text_contact }}</legend>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_name }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="email" value="{{ email }}" id="input-email" class="form-control" />
+              {% if error_email %}
+              <div class="text-danger">{{ error_email }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-enquiry">{{ entry_enquiry }}</label>
+            <div class="col-sm-10">
+              <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control">{{ enquiry }}</textarea>
+              {% if error_enquiry %}
+              <div class="text-danger">{{ error_enquiry }}</div>
+              {% endif %}
+            </div>
+          </div>
+          {{ captcha }}
+        </fieldset>
+        <div class="buttons">
+          <div class="pull-right">
+            <input class="btn btn-primary" type="submit" value="{{ button_submit }}" />
+          </div>
+        </div>
+      </form>
+            
+            </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}

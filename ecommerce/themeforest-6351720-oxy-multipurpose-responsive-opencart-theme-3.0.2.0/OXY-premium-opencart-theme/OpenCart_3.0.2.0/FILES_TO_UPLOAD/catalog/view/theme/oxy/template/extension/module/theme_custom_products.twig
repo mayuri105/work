@@ -1,0 +1,193 @@
+
+<style type="text/css">
+#theme-custom-products{{ module }} h2 {
+	color: {{ module_title_color }};
+}
+#content #theme-custom-products{{ module }} h2:before {
+	border-bottom-color: {{ module_title_border_color }};
+}
+#theme-custom-products{{ module }} .theme-custom-products-subtitle {
+	color: {{ module_subtitle_color }};
+{% if module_title_position =='right' %}
+	padding-left: 10%;
+{% else %}
+    padding-right: 10%;
+{% endif %}
+}
+#theme-custom-products{{ module }} {
+	background-color: {{ module_bg_color }};
+{% if _SERVER.HTTPS and _SERVER.HTTPS != 'off' %}
+	{% set path_image = config_ssl ~ 'image/' %}
+{% else %}  
+	{% set path_image = config_url ~ 'image/' %}
+{% endif %}
+{% if module_image_custom !='' %}
+	background-image: url("{{ path_image ~ module_image_custom }}");
+{% else %}
+	background-image: none;
+{% endif %}
+{% if module_title_position =='left' %}
+	background-position: top left;
+{% else %}
+	background-position: top right;
+{% endif %}
+}
+#theme-custom-products{{ module }} .panel-inline-title {
+	float: {{ module_title_position }}; 
+}
+{% if module_title_position =='right' %}
+#theme-custom-products{{ module }} h2, #theme-custom-products{{ module }} .theme-custom-products-subtitle {
+	text-align: right;
+}
+#theme-custom-products{{ module }}.panel-inline-content .panel-inline-title .btn, #theme-custom-products{{ module }} h2:before {
+	right: 0;
+	left: inherit;
+	margin-right: 0;
+}
+{% endif %}
+</style>
+
+<div class="theme-custom-products panel panel-default panel-inline module-style-1 mgrb full-width-container">
+<div id="theme-custom-products{{ module }}" class="box-content theme-custom-products-content panel-inline-content">
+  {% if custom_products.title !='' %}
+  <div class="theme-custom-products-title panel-inline-title col-sm-{{ module_title_width }}">
+  <h2>{{ custom_products.title }}</h2>
+  {% if custom_products.subtitle !='' %}
+  <div class="theme-custom-products-subtitle panel-inline-subtitle subtitle">{{ custom_products.subtitle }}</div>
+  {% endif %}
+  {% if custom_products.button !='' %}
+  <a href="{{ custom_products.button_url }}" class="btn btn-default">{{ custom_products.button }}</a>
+  {% endif %}
+  </div>
+  {% endif %}
+  {% if custom_products.title !='' %}
+  <div class="panel-inline-items col-sm-{{ module_items_width }}">
+  {% else %}
+  <div class="panel-inline-items col-sm-{{ module_items_width }} full-width">
+  {% endif %}
+
+  <div class="theme-custom-products-items{{ module }}">
+  {% for product in products %}
+  <div class="product-layout-slider product-grid col-xs-12">
+    <div class="product-thumb transition">
+      <div class="image">   
+        
+            {% if product.out_of_stock_quantity <= 0 and t1o_out_of_stock_badge_status == 1 %} 
+            <span class="badge out-of-stock"><span>{{ product.out_of_stock_badge }}</span></span>
+            {% endif %}   
+            
+            <span class="badge-wrapper">
+            
+            {% if t1o_sale_badge_status == 1 %}	
+            {% if product.special and t1o_sale_badge_type == 0 %}
+            <span class="badge sale">{{ t1o_text_sale[lang_id] }}</span>
+            {% endif %} 
+            {% if product.special and t1o_sale_badge_type == 1 %}            
+            {% set res = (product.val1 / product.val2) * 100 %}
+            {% set res = 100 - res %}
+            <span class="badge sale">-{{ res|round(0, 'common') }}%</span>
+            {% endif %}
+            {% endif %}
+      
+            {% if t1o_new_badge_status == 1 %}	
+            {% set days = (product.endDate2|round(0, 'common') / 86400) - (product.startDate1|round(0, 'common') /86400) %}
+            {% set newproductdays = 30 %}
+            {% if days < newproductdays %}
+            <span class="badge new">{{ t1o_text_new_prod[lang_id] }}</span>
+            {% endif %}
+            {% endif %}
+            
+            </span>
+            
+            {% if t1o_category_prod_box_style == 'product-box-style-3' %}
+            <div class="flybar-top">  
+            <div class="flybar-top-items">
+            <p class="description">{{ product.description }}</p>
+            <div class="rating">
+              {% for i in 1..5 %}
+              {% if product.rating < i %}
+              <span class="fa fa-stack fa-g"><i class="fa fa-star fa-stack-2x"></i></span>
+              {% else %}
+              <span class="fa fa-stack fa-y"><i class="fa fa-star fa-stack-2x"></i></span>
+              {% endif %}
+              {% endfor %}
+            </div>
+            </div>   
+            </div>
+            {% endif %}
+
+            <div class="flybar">  
+            <div class="flybar-items">
+            <button type="button" data-toggle="tooltip" title="{{ button_cart }}" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" class="btn btn-default"><i class="fa fa-shopping-bag"></i></button>
+            <a class="btn btn-default quickview" href="{{ product.quickview }}" data-toggle="tooltip" title="{{ t1o_text_quickview[lang_id] }}"><i class="fa fa-search"></i></a>
+            <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist"><i class="fa fa-heart"></i></button>
+            <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');" class="compare"><i class="fa fa-retweet"></i></button>
+            </div>   
+            </div>
+            
+            {% if product.thumb_swap %}
+            <a href="{{ product.href }}">
+            <img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive img-{{ t1d_img_style }} lazyload" />
+            <img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb_swap }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive thumb_swap img-{{ t1d_img_style }} lazyload" />
+            </a>
+            {% else %}
+            <a href="{{ product.href }}"><img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive img-{{ t1d_img_style }} lazyload" /></a>
+            {% endif %} 
+      </div>
+            
+      <div class="caption">
+              
+                <div class="name"><h4><a href="{{ product.href }}">{{ product.name }}</a></h4></div>
+                <div class="product_box_brand">{% if product.brand %}<a href="{{ product.brand_url }}">{{ product.brand }}</a>{% endif %}</div>
+                <p class="description">{{ product.description }}</p>
+
+                <div class="rating">
+                  {% for i in 1..5 %}
+                  {% if product.rating < i %}
+                  <span class="fa fa-stack fa-g"><i class="fa fa-star fa-stack-2x"></i></span>
+                  {% else %}
+                  <span class="fa fa-stack fa-y"><i class="fa fa-star fa-stack-2x"></i></span>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                
+                {% if product.price %}
+                <p class="price">
+                  {% if not product.special %}
+                  {{ product.price }}
+                  {% else %}
+                  <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+                
+                <div class="product-list-buttons">
+                  <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" class="btn btn-default cart"><i class="fa fa-shopping-bag"></i> <span>{{ button_cart }}</span></button>
+                  <a class="btn btn-default quickview list-quickview" href="{{ product.quickview }}" data-toggle="tooltip" title="{{ t1o_text_quickview[lang_id] }}"><i class="fa fa-search"></i></a>
+                  <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');" class="btn btn-default list-wishlist"><i class="fa fa-heart"></i></button>
+                  <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');" class="btn btn-default list-compare"><i class="fa fa-retweet"></i></button>
+                </div>
+                
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+  </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$('.theme-custom-products-items{{ module }}').owlCarousel({
+	items: '{{ pr_id }}',
+	itemsDesktop : [1199, '3'],
+    itemsDesktopSmall : [979, 2],
+    itemsTablet : [768, 2],
+	itemsMobile : [479, 2],
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>

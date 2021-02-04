@@ -1,0 +1,130 @@
+
+<div class="panel panel-default product-module full-width-container">
+  <div class="panel-heading module-heading"><h2>{{ heading_title }}</h2></div>
+  <div class="row product-items-wrapper">
+  <div class="product-items product-items-featured product-items-{{ t1o_featured_style }}">
+  {% for product in products %}
+  {% if t1o_featured_style == 1 %}
+  <div class="product-layout-slider product-grid col-xs-12">
+  {% else %}
+  <div class="product-layout-grid product-grid col-xs-12">
+  {% endif %}
+    <div class="product-thumb transition">
+      <div class="image"> 
+          
+            {% if product.out_of_stock_quantity <= 0 and t1o_out_of_stock_badge_status == 1 %}
+            <span class="badge out-of-stock"><span>{{ product.out_of_stock_badge }}</span></span>
+            {% endif %}
+            
+            <span class="badge-wrapper">
+            
+            {% if t1o_sale_badge_status == 1 %}	
+            {% if product.special and t1o_sale_badge_type == 0 %}
+            <span class="badge sale">{{ t1o_text_sale[lang_id] }}</span>
+            {% endif %} 
+            {% if product.special and t1o_sale_badge_type == 1 %}            
+            {% set res = (product.val1 / product.val2) * 100 %}
+            {% set res = 100 - res %}
+            <span class="badge sale">-{{ res|round(0, 'common') }}%</span>
+            {% endif %}
+            {% endif %}
+      
+            {% if t1o_new_badge_status == 1 %}	
+            {% set days = (product.endDate2|round(0, 'common') / 86400) - (product.startDate1|round(0, 'common') /86400) %}
+            {% set newproductdays = 30 %}
+            {% if days < newproductdays %}
+            <span class="badge new">{{ t1o_text_new_prod[lang_id] }}</span>
+            {% endif %}
+            {% endif %}
+            
+            </span>
+            
+            {% if t1o_category_prod_box_style == 'product-box-style-3' %}
+            <div class="flybar-top">  
+            <div class="flybar-top-items">
+            <p class="description">{{ product.description }}</p>
+            <div class="rating">
+              {% for i in 1..5 %}
+              {% if product.rating < i %}
+              <span class="fa fa-stack fa-g"><i class="fa fa-star fa-stack-2x"></i></span>
+              {% else %}
+              <span class="fa fa-stack fa-y"><i class="fa fa-star fa-stack-2x"></i></span>
+              {% endif %}
+              {% endfor %}
+            </div>
+            </div>   
+            </div>
+            {% endif %}
+            
+            <div class="flybar">  
+            <div class="flybar-items">
+            <button type="button" data-toggle="tooltip" title="{{ button_cart }}" onclick="cart.add('{{ product.product_id }}');" class="btn btn-default"><i class="fa fa-shopping-bag"></i></button>
+            <a class="btn btn-default quickview" href="{{ product.quickview }}" data-toggle="tooltip" title="{{ t1o_text_quickview[lang_id] }}"><i class="fa fa-search"></i></a>
+            <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist"><i class="fa fa-heart"></i></button>
+            <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');" class="compare"><i class="fa fa-retweet"></i></button>
+            </div>   
+            </div>
+            
+            {% if product.thumb_swap %}
+            <a href="{{ product.href }}">
+            <img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive img-{{ t1d_img_style }} lazyload" />
+            <img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb_swap }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive thumb_swap img-{{ t1d_img_style }} lazyload" />
+            </a>
+            {% else %}
+            <a href="{{ product.href }}"><img src="{{ lazy_load_placeholder }}" data-src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive img-{{ t1d_img_style }} lazyload" /></a>
+            {% endif %} 
+      </div>
+            
+      <div class="caption">
+              
+                <div class="name"><h4><a href="{{ product.href }}">{{ product.name }}</a></h4></div>
+                <div class="product_box_brand">{% if product.brand %}<a href="{{ product.brand_url }}">{{ product.brand }}</a>{% endif %}</div>
+                <p class="description">{{ product.description }}</p>
+
+                <div class="rating">
+                  {% for i in 1..5 %}
+                  {% if product.rating < i %}
+                  <span class="fa fa-stack fa-g"><i class="fa fa-star fa-stack-2x"></i></span>
+                  {% else %}
+                  <span class="fa fa-stack fa-y"><i class="fa fa-star fa-stack-2x"></i></span>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                
+                {% if product.price %}
+                <p class="price">
+                  {% if not product.special %} 
+                  {{ product.price }}
+                  {% else %}
+                  <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+                
+                <div class="product-list-buttons">
+                  <button type="button" onclick="cart.add('{{ product.product_id }}');" class="btn btn-default cart"><i class="fa fa-shopping-bag"></i> <span>{{ button_cart }}</span></button>
+                  <a class="btn btn-default quickview list-quickview" href="{{ product.quickview }}" data-toggle="tooltip" title="{{ t1o_text_quickview[lang_id] }}"><i class="fa fa-search"></i></a>
+                  <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');" class="btn btn-default list-wishlist"><i class="fa fa-heart"></i></button>
+                  <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');" class="btn btn-default list-compare"><i class="fa fa-retweet"></i></button>
+                </div>
+                
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% if t1o_featured_style == 1 %}
+<script type="text/javascript"><!--
+$('.product-items-featured').owlCarousel({
+	items: '{{ t1o_featured_per_row }}',
+	itemsMobile : [479, 2],
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>
+{% endif %}
+</div>
+</div>

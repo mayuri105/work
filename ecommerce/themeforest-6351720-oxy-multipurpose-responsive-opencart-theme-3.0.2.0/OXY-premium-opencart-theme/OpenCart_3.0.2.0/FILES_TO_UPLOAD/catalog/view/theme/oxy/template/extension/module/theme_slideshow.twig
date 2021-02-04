@@ -1,0 +1,376 @@
+
+<style type="text/css">
+
+{% if _SERVER.HTTPS and _SERVER.HTTPS != 'off' %}
+	{% set path_image = config_ssl ~ 'image/' %}
+{% else %}  
+	{% set path_image = config_url ~ 'image/' %}
+{% endif %}
+
+{% if slideshow_hover_bg_color_status =='1' %}
+#theme-slideshow{{ module }} .theme-slideshow-bg {
+	background-color: {{ slideshow_hover_bg_color }};
+}
+#theme-slideshow{{ module }} .theme-slideshow-item:hover .theme-slideshow-bg {
+	opacity: {{ slideshow_hover_bg_color_opacity }};
+}
+{% endif %}
+
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_1_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_1 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_1_title {
+    animation: 0.7s {{ slideshow_item.title_animation_1 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_1_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_1 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_1_button {
+    animation: 0.7s {{ slideshow_item.button_animation_1 }};
+}
+
+{% if slideshow_item.status_2 =='1' %}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_2_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_2 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_2_title {
+    animation: 0.7s {{ slideshow_item.title_animation_2 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_2_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_2 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_2_button {
+    animation: 0.7s {{ slideshow_item.button_animation_2 }};
+}
+{% endif %}
+{% if slideshow_item.status_3 =='1' %}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_3_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_3 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_3_title {
+    animation: 0.7s {{ slideshow_item.title_animation_3 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_3_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_3 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_3_button {
+    animation: 0.7s {{ slideshow_item.button_animation_3 }};
+}
+{% endif %}
+{% if slideshow_item.status_4 =='1' %}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_4_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_4 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_4_title {
+    animation: 0.7s {{ slideshow_item.title_animation_4 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_4_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_4 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_4_button {
+    animation: 0.7s {{ slideshow_item.button_animation_4 }};
+}
+{% endif %}
+{% if slideshow_item.status_5 =='1' %}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_5_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_5 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_5_title {
+    animation: 0.7s {{ slideshow_item.title_animation_5 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_5_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_5 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_5_button {
+    animation: 0.7s {{ slideshow_item.button_animation_5 }};
+}
+{% endif %}
+{% if slideshow_item.status_6 =='1' %}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_6_main_image {
+    animation: 0.7s {{ slideshow_item.main_image_animation_6 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_6_title {
+    animation: 0.7s {{ slideshow_item.title_animation_6 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_6_subtitle {
+    animation: 0.7s {{ slideshow_item.subtitle_animation_6 }};
+}
+#theme-slideshow{{ module }} .swiper-slide-active .slideshow_6_button {
+    animation: 0.7s {{ slideshow_item.button_animation_6 }};
+}
+{% endif %}
+
+@keyframes fadeInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+    0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+	75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+    0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+	75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+</style>
+
+<div id="theme-slideshow{{ module }}" class="panel panel-default theme-slideshow theme-slideshow-module">
+
+<div class="swiper-viewport">
+<div class="theme-slideshow-wrapper{{ module }} swiper-container">
+<div class="swiper-wrapper">
+
+{% if slideshow_item.status_1 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_1 }} effect-{{ slideshow_item.hover_effect_1 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_1 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_1 }}" alt="{{ slideshow_item[lang_id].title_1 }}" title="{{ slideshow_item[lang_id].title_1 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_1 !='' %}
+  <span class="theme-slideshow-main-image slideshow_1_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_1 }}" alt="{{ slideshow_item[lang_id].title_1 }}" title="{{ slideshow_item[lang_id].title_1 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_1 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_1 }};">{{ slideshow_item[lang_id].label_1 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_1 !='' %}
+        <h2 class="theme-slideshow-title slideshow_1_title" style="color: {{ slideshow_title_color_1 }};">{{ slideshow_item_title_1 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_1 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_1_subtitle" style="color: {{ slideshow_subtitle_color_1 }};">{{ slideshow_item_subtitle_1 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_1 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_1 }} theme-slideshow-button slideshow_1_button">{{ slideshow_item[lang_id].button_1 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if slideshow_item.status_2 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_2 }} effect-{{ slideshow_item.hover_effect_2 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_2 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_2 }}" alt="{{ slideshow_item[lang_id].title_2 }}" title="{{ slideshow_item[lang_id].title_2 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_2 !='' %}
+  <span class="theme-slideshow-main-image slideshow_2_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_2 }}" alt="{{ slideshow_item[lang_id].title_2 }}" title="{{ slideshow_item[lang_id].title_2 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_2 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_2 }};">{{ slideshow_item[lang_id].label_2 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_2 !='' %}
+        <h2 class="theme-slideshow-title slideshow_2_title" style="color: {{ slideshow_title_color_2 }};">{{ slideshow_item_title_2 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_2 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_2_subtitle" style="color: {{ slideshow_subtitle_color_2 }};">{{ slideshow_item_subtitle_2 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_2 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_2 }} theme-slideshow-button slideshow_2_button">{{ slideshow_item[lang_id].button_2 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if slideshow_item.status_3 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_3 }} effect-{{ slideshow_item.hover_effect_3 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_3 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_3 }}" alt="{{ slideshow_item[lang_id].title_3 }}" title="{{ slideshow_item[lang_id].title_3 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_3 !='' %}
+  <span class="theme-slideshow-main-image slideshow_3_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_3 }}" alt="{{ slideshow_item[lang_id].title_3 }}" title="{{ slideshow_item[lang_id].title_3 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_3 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_3 }};">{{ slideshow_item[lang_id].label_3 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_3 !='' %}
+        <h2 class="theme-slideshow-title slideshow_3_title" style="color: {{ slideshow_title_color_3 }};">{{ slideshow_item_title_3 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_3 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_3_subtitle" style="color: {{ slideshow_subtitle_color_3 }};">{{ slideshow_item_subtitle_3 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_3 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_3 }} theme-slideshow-button slideshow_3_button">{{ slideshow_item[lang_id].button_3 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if slideshow_item.status_4 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_4 }} effect-{{ slideshow_item.hover_effect_4 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_4 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_4 }}" alt="{{ slideshow_item[lang_id].title_4 }}" title="{{ slideshow_item[lang_id].title_4 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_4 !='' %}
+  <span class="theme-slideshow-main-image slideshow_4_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_4 }}" alt="{{ slideshow_item[lang_id].title_4 }}" title="{{ slideshow_item[lang_id].title_4 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_4 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_4 }};">{{ slideshow_item[lang_id].label_4 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_4 !='' %}
+        <h2 class="theme-slideshow-title slideshow_4_title" style="color: {{ slideshow_title_color_4 }};">{{ slideshow_item_title_4 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_4 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_4_subtitle" style="color: {{ slideshow_subtitle_color_4 }};">{{ slideshow_item_subtitle_4 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_4 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_4 }} theme-slideshow-button slideshow_4_button">{{ slideshow_item[lang_id].button_4 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if slideshow_item.status_5 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_5 }} effect-{{ slideshow_item.hover_effect_5 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_5 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_5 }}" alt="{{ slideshow_item[lang_id].title_5 }}" title="{{ slideshow_item[lang_id].title_5 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_5 !='' %}
+  <span class="theme-slideshow-main-image slideshow_5_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_5 }}" alt="{{ slideshow_item[lang_id].title_5 }}" title="{{ slideshow_item[lang_id].title_5 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_5 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_5 }};">{{ slideshow_item[lang_id].label_5 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_5 !='' %}
+        <h2 class="theme-slideshow-title slideshow_5_title" style="color: {{ slideshow_title_color_5 }};">{{ slideshow_item_title_5 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_5 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_5_subtitle" style="color: {{ slideshow_subtitle_color_5 }};">{{ slideshow_item_subtitle_5 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_5 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_5 }} theme-slideshow-button slideshow_5_button">{{ slideshow_item[lang_id].button_5 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if slideshow_item.status_6 =='1' %}
+<div class="col-sm-12 theme-slideshow-item {{ slideshow_item.content_position_6 }} effect-{{ slideshow_item.hover_effect_6 }} swiper-slide">
+  <div class="theme-slideshow-item-wrapper">
+  <a href="{{ slideshow_item[lang_id].url_6 }}">
+  <img src="{{ path_image ~ slideshow_item_image_custom_6 }}" alt="{{ slideshow_item[lang_id].title_6 }}" title="{{ slideshow_item[lang_id].title_6 }}" class="theme-slideshow-item-bg" />
+  <span class="theme-slideshow-bg"></span>
+  {% if slideshow_item_main_image_custom_6 !='' %}
+  <span class="theme-slideshow-main-image slideshow_6_main_image">
+  <img src="{{ path_image ~ slideshow_item_main_image_custom_6 }}" alt="{{ slideshow_item[lang_id].title_6 }}" title="{{ slideshow_item[lang_id].title_6 }}" />
+  </span>
+  {% endif %}
+  <div class="theme-slideshow-content-wrapper">
+    <div class="theme-slideshow-content-table">
+      <div class="theme-slideshow-content-table-cell">
+        {% if slideshow_item[lang_id].label_6 !='' %}
+        <span class="btn btn-default theme-slideshow-label" style="background-color: {{ slideshow_label_color_6 }};">{{ slideshow_item[lang_id].label_6 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].title_6 !='' %}
+        <h2 class="theme-slideshow-title slideshow_6_title" style="color: {{ slideshow_title_color_6 }};">{{ slideshow_item_title_6 }}</h2>
+        {% endif %}
+        {% if slideshow_item[lang_id].subtitle_6 !='' %}
+        <span class="theme-slideshow-subtitle subtitle slideshow_6_subtitle" style="color: {{ slideshow_subtitle_color_6 }};">{{ slideshow_item_subtitle_6 }}</span>
+        {% endif %}
+        {% if slideshow_item[lang_id].button_6 !='' %}
+        <span class="btn btn-{{ slideshow_item.button_style_6 }} theme-slideshow-button slideshow_6_button">{{ slideshow_item[lang_id].button_6 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+</div>
+</div>
+
+{% if slideshow_pagination =='1' %}
+<div class="swiper-pagination slideshow{{ module }}"></div>
+{% endif %}
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+</div>
+
+</div>
+
+<script type="text/javascript"><!--
+$('.theme-slideshow-wrapper{{ module }}').swiper({
+	mode: 'horizontal',
+	slidesPerView: 1,
+	pagination: '.slideshow{{ module }}',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+	autoplay: '{{ slideshow_time }}',
+    autoplayDisableOnInteraction: true,
+	loop: true,
+	effect: 'fade'
+});
+--></script>
+

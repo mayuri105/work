@@ -1,0 +1,243 @@
+
+<style type="text/css">
+{% if banner_pro_hover_bg_color_status =='1' %}
+#theme-banner-pro{{ module }} .theme-banner-pro-bg {
+	background-color: {{ banner_pro_hover_bg_color }};
+}
+#theme-banner-pro{{ module }} .theme-banner-pro-item:hover .theme-banner-pro-bg {
+	opacity: {{ banner_pro_hover_bg_color_opacity }};
+}
+{% endif %}
+#content #theme-banner-pro{{ module }} {
+{% if _SERVER.HTTPS and _SERVER.HTTPS != 'off' %}
+	{% set path_image = config_ssl ~ 'image/' %}
+{% else %}  
+	{% set path_image = config_url ~ 'image/' %}
+{% endif %}
+{% if banner_pro_image_custom !='' %}
+	background-image: url("{{ path_image ~ banner_pro_image_custom }}");
+{% else %}
+	background-image: none;
+{% endif %}
+}
+{% if banner_pro_padding =='0' %}
+#theme-banner-pro{{ module }} {
+	padding: 0;
+}
+.wrapper.full-width #theme-banner-pro{{ module }} {
+	margin: 0 -30px;
+}
+#theme-banner-pro{{ module }} .theme-banner-pro-item-wrapper {
+	margin: 0;
+}
+.theme-banner-pro-wrapper {
+	margin: 0;
+}
+{% else %}
+#theme-banner-pro{{ module }} {
+	padding: 0 30px;
+}
+.wrapper.full-width #theme-banner-pro{{ module }}.full-width-container {
+	padding: 0;
+}
+#theme-banner-pro{{ module }} .theme-banner-pro-item-wrapper {
+	margin: 15px;
+}
+.theme-banner-pro-wrapper {
+	margin: 0 -15px;
+}
+{% endif %}
+{% if banner_pro_image_custom !='' %}
+#theme-banner-pro{{ module }}, .wrapper.full-width #theme-banner-pro{{ module }}.full-width-container  {
+	padding: 30px 45px;
+}
+{% endif %}
+{% if banner_pro_title_shadow =='1' %}
+#theme-banner-pro{{ module }} h2 {
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+{% endif %}
+
+</style>
+
+<div id="theme-banner-pro{{ module }}" class="panel panel-default theme-banner-pro full-width-container">
+<div>
+<div class="theme-banner-pro-wrapper">
+
+{% if banner_pro_item.status_1 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_1 }} theme-banner-pro-item {{ banner_pro_item.content_position_1 }} effect-{{ banner_pro_item.hover_effect_1 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_1 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_1 }}" alt="{{ banner_pro_item[lang_id].title_1 }}" title="{{ banner_pro_item[lang_id].title_1 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_1 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_1 }};">{{ banner_pro_item[lang_id].label_1 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_1 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_1 }};">{{ banner_pro_item_title_1 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_1 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_1 }};">{{ banner_pro_item_subtitle_1 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_1 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_1 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_1 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if banner_pro_item.status_2 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_2 }} theme-banner-pro-item {{ banner_pro_item.content_position_2 }} effect-{{ banner_pro_item.hover_effect_2 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_2 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_2 }}" alt="{{ banner_pro_item[lang_id].title_2 }}" title="{{ banner_pro_item[lang_id].title_2 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_2 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_2 }};">{{ banner_pro_item[lang_id].label_2 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_2 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_2 }};">{{ banner_pro_item_title_2 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_2 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_2 }};">{{ banner_pro_item_subtitle_2 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_2 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_2 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_2 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if banner_pro_item.status_3 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_3 }} theme-banner-pro-item {{ banner_pro_item.content_position_3 }} effect-{{ banner_pro_item.hover_effect_3 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_3 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_3 }}" alt="{{ banner_pro_item[lang_id].title_3 }}" title="{{ banner_pro_item[lang_id].title_3 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_3 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_3 }};">{{ banner_pro_item[lang_id].label_3 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_3 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_3 }};">{{ banner_pro_item_title_3 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_3 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_3 }};">{{ banner_pro_item_subtitle_3 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_3 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_3 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_3 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if banner_pro_item.status_4 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_4 }} theme-banner-pro-item {{ banner_pro_item.content_position_4 }} effect-{{ banner_pro_item.hover_effect_4 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_4 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_4 }}" alt="{{ banner_pro_item[lang_id].title_4 }}" title="{{ banner_pro_item[lang_id].title_4 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_4 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_4 }};">{{ banner_pro_item[lang_id].label_4 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_4 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_4 }};">{{ banner_pro_item_title_4 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_4 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_4 }};">{{ banner_pro_item_subtitle_4 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_4 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_4 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_4 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if banner_pro_item.status_5 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_5 }} theme-banner-pro-item {{ banner_pro_item.content_position_5 }} effect-{{ banner_pro_item.hover_effect_5 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_5 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_5 }}" alt="{{ banner_pro_item[lang_id].title_5 }}" title="{{ banner_pro_item[lang_id].title_5 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_5 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_5 }};">{{ banner_pro_item[lang_id].label_5 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_5 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_5 }};">{{ banner_pro_item_title_5 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_5 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_5 }};">{{ banner_pro_item_subtitle_5 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_5 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_5 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_5 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+{% if banner_pro_item.status_6 =='1' %}
+<div class="col-sm-{{ banner_pro_item.width_6 }} theme-banner-pro-item {{ banner_pro_item.content_position_6 }} effect-{{ banner_pro_item.hover_effect_6 }}">
+  <div class="theme-banner-pro-item-wrapper">
+  <a href="{{ banner_pro_item[lang_id].url_6 }}">
+  <img src="{{ path_image ~ banner_pro_item_image_custom_6 }}" alt="{{ banner_pro_item[lang_id].title_6 }}" title="{{ banner_pro_item[lang_id].title_6 }}" />
+  <span class="theme-banner-pro-bg"></span>
+  <div class="theme-banner-pro-content-wrapper">
+    <div class="theme-banner-pro-content-table">
+      <div class="theme-banner-pro-content-table-cell">
+        {% if banner_pro_item[lang_id].label_6 !='' %}
+        <span class="btn btn-default theme-banner-pro-label" style="background-color: {{ banner_pro_label_color_6 }};">{{ banner_pro_item[lang_id].label_6 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].title_6 !='' %}
+        <h2 class="theme-banner-pro-title" style="color: {{ banner_pro_title_color_6 }};">{{ banner_pro_item_title_6 }}</h2>
+        {% endif %}
+        {% if banner_pro_item[lang_id].subtitle_6 !='' %}
+        <span class="theme-banner-pro-subtitle subtitle" style="color: {{ banner_pro_subtitle_color_6 }};">{{ banner_pro_item_subtitle_6 }}</span>
+        {% endif %}
+        {% if banner_pro_item[lang_id].button_6 !='' %}
+        <span class="btn btn-{{ banner_pro_item.button_style_6 }} theme-banner-pro-button">{{ banner_pro_item[lang_id].button_6 }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+</div>
+{% endif %}
+
+</div>
+</div>
+</div>

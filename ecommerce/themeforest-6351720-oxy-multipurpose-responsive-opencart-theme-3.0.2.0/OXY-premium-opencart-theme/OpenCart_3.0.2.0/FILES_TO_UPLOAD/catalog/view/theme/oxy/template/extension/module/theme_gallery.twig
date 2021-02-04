@@ -1,0 +1,67 @@
+
+<style type="text/css">
+#theme-gallery{{ module }} {
+	background-color: {{ module_bg_color }};
+}
+#theme-gallery{{ module }} h2 {
+	color: {{ module_title_color }};
+}
+#content #theme-gallery{{ module }} h2:before {
+	border-bottom-color: {{ module_title_border_color }};
+}
+#theme-gallery{{ module }} .theme-gallery-subtitle {
+	color: {{ module_subtitle_color }};
+}
+</style>
+
+<div id="theme-gallery" class="panel panel-default panel-inline module-style-2 full-width-container">
+<div id="theme-gallery{{ module }}" class="box-content theme-gallery-content panel-inline-content">
+  {% if gallery.title !='' %}
+  <div class="theme-gallery-title panel-inline-title">
+  <h2>{{ gallery.title }}</h2>
+  {% if gallery.subtitle !='' %}
+  <div class="theme-gallery-subtitle panel-inline-subtitle subtitle">{{ gallery.subtitle }}</div>
+  {% endif %}
+  </div>
+  {% endif %}
+  {% if gallery.title !='' %}
+  <div class="panel-inline-items mgrb">
+  {% else %}
+  <div class="panel-inline-items full-width">
+  {% endif %}
+  <div class="theme-gallery-items{{ module }}">
+  {% for banner in banners %}
+  <div class="theme-gallery-item">
+  <a href="{{ banner.image }}" title="{{ banner.title }}" class="thumbnail">
+  <img src="{{ lazy_load_placeholder }}" data-src="{{ banner.image }}" alt="{{ banner.title }}" title="{{ banner.title }}" class="lazyload" />
+  <span class="theme-gallery-bg"></span>
+  <span class="gallery-hover-box"><i class="fa fa-search"></i></span>
+  </a>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+	$('.theme-gallery-items{{ module }}').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled:true
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.theme-gallery-items{{ module }}').owlCarousel({
+	items: '{{ pr_id }}',
+	itemsMobile : [479, 2],
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>

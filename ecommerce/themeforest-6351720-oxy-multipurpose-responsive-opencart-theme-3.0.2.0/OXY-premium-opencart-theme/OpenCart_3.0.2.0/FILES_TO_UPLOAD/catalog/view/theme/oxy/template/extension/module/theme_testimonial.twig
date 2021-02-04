@@ -1,0 +1,63 @@
+
+<style type="text/css">
+#testimonial-block{{ module }} h2 {
+	color: {{ module_title_color }};
+}
+#content #testimonial-block{{ module }} h2:before {
+	border-bottom-color: {{ module_title_border_color }};
+}
+#testimonial-block{{ module }} .testimonial-block-item-description {
+	color: {{ module_testimonial_color }};
+	background-color: {{ module_testimonial_bg_color }};
+}
+#testimonial-block{{ module }} .testimonial-block-item-name {
+	color: {{ module_name_color }};
+}
+#testimonial-block{{ module }} {
+	background-color: {{ module_bg_color }};
+{% if _SERVER.HTTPS and _SERVER.HTTPS != 'off' %}
+	{% set path_image = config_ssl ~ 'image/' %}
+{% else %}  
+	{% set path_image = config_url ~ 'image/' %}
+{% endif %}
+{% if module_image_custom !='' %}
+	background-image: url("{{ path_image ~ module_image_custom }}");
+{% else %}
+	background-image: none;
+{% endif %}
+    background-position: center;
+}
+</style>
+
+<div id="testimonial-block" class="panel panel-default panel-inline module-style-2 full-width-container">
+<div id="testimonial-block{{ module }}" class="thumbnails box-content testimonial-block-content panel-inline-content">
+  {% if testimonial.title !='' %}
+  <div class="testimonial-block-title panel-inline-title"><h2>{{ testimonial.title }}</h2></div>
+  {% endif %}
+  <div class="panel-inline-items-wrapper">
+  <div class="panel-inline-items testimonial-block-items{{ module }}">
+  {% for section in sections %}
+  <div class="testimonial-block-item">
+  <span class="testimonial-block-item-photo"><img src="{{ section.image }}" alt="" title="" /></span>
+  <span class="testimonial-block-item-description subtitle">{{ section.testimonial_block }}</span>
+  <span class="testimonial-block-item-name">- {{ section.reviewer_name }} -</span>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$('.testimonial-block-items{{ module }}').owlCarousel({
+	items: '{{ pr_id }}',
+	itemsDesktop : [1199, 2],
+    itemsDesktopSmall : [979, 2],
+    itemsTablet : [768, 1],
+	autoPlay: 5000,
+	singleItem: false,
+	scrollPerPage: true,
+	pagination: false,
+	navigation: true,
+	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+});
+--></script>

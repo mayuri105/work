@@ -1,0 +1,188 @@
+
+<style type="text/css">
+.features{{ module }} .f-title {
+	color: {{ module_title_color }};
+}
+.features{{ module }} span.f-subtitle {
+	color: {{ module_subtitle_color }};
+}
+.features{{ module }} span.f-icon.fi1 {background-color: {{ module_icon_1_bg_color }};}
+.features{{ module }} span.f-icon.fi2 {background-color: {{ module_icon_2_bg_color }};}
+.features{{ module }} span.f-icon.fi3 {background-color: {{ module_icon_3_bg_color }};}
+.features{{ module }} span.f-icon.fi4 {background-color: {{ module_icon_4_bg_color }};}
+.features{{ module }} span.f-icon.fi1 i {color: {{ module_icon_1_color }};}
+.features{{ module }} span.f-icon.fi2 i {color: {{ module_icon_2_color }};}
+.features{{ module }} span.f-icon.fi3 i {color: {{ module_icon_3_color }};}
+.features{{ module }} span.f-icon.fi4 i {color: {{ module_icon_4_color }};}
+
+{% if module_bg_status == 1 %}
+.features{{ module }} {
+	background-color: {{ module_bg_color }};
+{% if _SERVER.HTTPS and _SERVER.HTTPS != 'off' %}
+	{% set path_image = config_ssl ~ 'image/' %}
+{% else %}  
+	{% set path_image = config_url ~ 'image/' %}
+{% endif %}
+{% if module_image_custom !='' %}
+	background-image: url("{{ path_image ~ module_image_custom }}");
+{% else %}
+	background-image: none;
+{% endif %}
+    background-position: left top;
+}
+{% endif %}
+</style>
+
+  <div id="features" class="features{{ module }} content-padd {{ features_blocks_style }}">
+    <div class="row full-width-container">
+    
+    {% if features_block.title_1 %}
+    <div class="theme-modal col-sm-12 col-md-{{ bpr_id }} come-item">
+    <a href="#" data-toggle="modal" data-target="#modal-fb1">
+    <div class="f-content">
+      <span class="f-icon fi1">
+        {% if features_block.awesome_font_1 !='' %}
+        <i class="fa fa-{{ features_block.awesome_font_1 }}"></i>
+        {% else %}
+        <i class="fa fa-paper-plane"></i>
+		{% endif %}
+        <i class="fa fa-search"></i>
+      </span>
+    <span class="f-title">{{ features_block.title_1 }}</span>
+    {% if features_block.subtitle_1 %}
+    <span class="f-subtitle subtitle">{{ features_block.subtitle_1 }}</span>
+    {% endif %}
+    </div>
+    </a>
+    <div class="modal fade" id="modal-fb1" tabindex="-1" role="dialog" aria-labelledby="modal-fb1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="content-footer-fb">
+            <h1>{{ features_block.title_1 }}</h1>
+            {% if features_block.subtitle_1 %}
+            <p class="subtitle">{{ features_block.subtitle_1 }}</p>
+            {% endif %}
+            {{ module_description_1 }}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endif %}
+    
+    {% if features_block.title_2 %}
+    <div class="theme-modal col-sm-12 col-md-{{ bpr_id }} come-item">
+    <a href="#" data-toggle="modal" data-target="#modal-fb2">
+    <div class="f-content">
+      <span class="f-icon fi2">
+        {% if features_block.awesome_font_2 !='' %}
+        <i class="fa fa-{{ features_block.awesome_font_2 }}"></i>
+        {% else %}
+        <i class="fa fa-paper-plane"></i>
+		{% endif %}
+        <i class="fa fa-search"></i>
+      </span>
+    <span class="f-title">{{ features_block.title_2 }}</span>
+    {% if features_block.subtitle_2 %}
+    <span class="f-subtitle subtitle">{{ features_block.subtitle_2 }}</span>
+    {% endif %}
+    </div>
+    </a>
+    <div class="modal fade" id="modal-fb2" tabindex="-1" role="dialog" aria-labelledby="modal-fb2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="content-footer-fb">
+            <h1>{{ features_block.title_2 }}</h1>
+            {% if features_block.subtitle_2 %}
+            <p class="subtitle">{{ features_block.subtitle_2 }}</p>
+            {% endif %}
+            {{ module_description_2 }}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endif %}
+    
+    {% if features_block.title_3 %}
+    <div class="theme-modal col-sm-12 col-md-{{ bpr_id }} come-item">
+    <a href="#" data-toggle="modal" data-target="#modal-fb3">
+    <div class="f-content">
+      <span class="f-icon fi3">
+        {% if features_block.awesome_font_3 !='' %}
+        <i class="fa fa-{{ features_block.awesome_font_3 }}"></i>
+        {% else %}
+        <i class="fa fa-paper-plane"></i>
+		{% endif %}
+        <i class="fa fa-search"></i>
+      </span>
+    <span class="f-title">{{ features_block.title_3 }}</span>
+    {% if features_block.subtitle_3 %}
+    <span class="f-subtitle subtitle">{{ features_block.subtitle_3 }}</span>
+    {% endif %}
+    </div>
+    </a>
+    <div class="modal fade" id="modal-fb3" tabindex="-1" role="dialog" aria-labelledby="modal-fb3" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="content-footer-fb">
+            <h1>{{ features_block.title_3 }}</h1>
+            {% if features_block.subtitle_3 %}
+            <p class="subtitle">{{ features_block.subtitle_3 }}</p>
+            {% endif %}
+            {{ module_description_3 }}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endif %}
+    
+    {% if features_block.title_4 %}
+    <div class="theme-modal col-sm-12 col-md-{{ bpr_id }} come-item">
+    <a href="#" data-toggle="modal" data-target="#modal-fb4">
+    <div class="f-content">
+      <span class="f-icon fi4">
+        {% if features_block.awesome_font_4 !='' %}
+        <i class="fa fa-{{ features_block.awesome_font_4 }}"></i>
+        {% else %}
+        <i class="fa fa-paper-plane"></i>
+		{% endif %}
+        <i class="fa fa-search"></i>
+      </span>
+    <span class="f-title">{{ features_block.title_4 }}</span>
+    {% if features_block.subtitle_4 %}
+    <span class="f-subtitle subtitle">{{ features_block.subtitle_4 }}</span>
+    {% endif %}
+    </div>
+    </a>
+    <div class="modal fade" id="modal-fb4" tabindex="-1" role="dialog" aria-labelledby="modal-fb4" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="content-footer-fb">
+            <h1>{{ features_block.title_4 }}</h1>
+            {% if features_block.subtitle_4 %}
+            <p class="subtitle">{{ features_block.subtitle_4 }}</p>
+            {% endif %}
+            {{ module_description_4 }}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endif %}
+    
+    </div>
+  </div>

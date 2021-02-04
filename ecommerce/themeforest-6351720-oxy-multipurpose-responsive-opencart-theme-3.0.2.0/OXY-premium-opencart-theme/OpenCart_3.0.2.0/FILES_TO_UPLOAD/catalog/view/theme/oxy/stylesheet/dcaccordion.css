@@ -1,0 +1,16 @@
+.accordion {padding: 0; margin-bottom: 0;}
+.accordion li ul {padding: 10px 0px; background-color: rgba(0, 0, 0, 0.05);}
+.accordion li.dcjq-parent-li, .accordion li.dcjq-parent-li ul li {position: relative; list-style: none;}
+.accordion li.dcjq-parent-li ul li:last-child {margin-bottom: 5px;}
+.accordion li.dcjq-parent-li ul li a { padding: 5px 30px;}
+.accordion li > a + .dcjq-icon {float: right; width: 50px; height: 40px; line-height: 40px; position: absolute; top: 0; right: 0; background: none; cursor:pointer; transition: all 0.2s ease-in 0s;}
+.accordion li.dcjq-parent-li .dcjq-icon:hover {}
+.accordion li.dcjq-parent-li > a + .dcjq-icon {display: block; width: 25px; height: 25px; line-height: 23px; border-radius: 25px; text-align: center; background: none; margin-top: 10px; margin-right: 10px; background-color: rgba(255, 255, 255, 0.5);}
+.accordion li.dcjq-parent-li > a + .dcjq-icon i {font-size: 10px;}
+#accordion-mobile.accordion li.dcjq-parent-li > a + .dcjq-icon {width: 25px; height: 25px; line-height: 23px; border-radius: 25px; text-align: center; background: none; margin-top: 9px; margin-right: 20px; background-color: rgba(0, 0, 0, 0.03);}
+.accordion li.dcjq-parent-li > a.active + .dcjq-icon {display: none; width: 50px; height: 40px; line-height: 40px; background: none;}
+.accordion li.dcjq-parent-li > a.active + .dcjq-icon:hover {background: none;}
+.accordion li > a + .dcjq-icon {display: none;}
+.accordion li > a.active + .dcjq-icon {display: none;}
+.panel-default.panel-category .accordion li.dcjq-parent-li > a.list-group-item.active{border: none!important;} 
+.panel-default.panel-category .accordion li.dcjq-parent-li:last-child > a.list-group-item{border-bottom: none!important;} 

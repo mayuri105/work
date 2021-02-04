@@ -1,0 +1,417 @@
+
+{% if module_bg_color is empty %}{% set module_bg_color = 'F3F3F3' %}{% endif %}
+{% if module_title_color is empty %}{% set module_title_color = '424242' %}{% endif %}
+{% if module_subtitle_color is empty %}{% set module_subtitle_color = 'B6B6B6' %}{% endif %}
+{% if module_icon_1_bg_color is empty %}{% set module_icon_1_bg_color = '3EACEA' %}{% endif %}
+{% if module_icon_2_bg_color is empty %}{% set module_icon_2_bg_color = '3EACEA' %}{% endif %}
+{% if module_icon_3_bg_color is empty %}{% set module_icon_3_bg_color = '3EACEA' %}{% endif %}
+{% if module_icon_4_bg_color is empty %}{% set module_icon_4_bg_color = '3EACEA' %}{% endif %}
+{% if module_icon_1_color is empty %}{% set module_icon_1_color = 'FFFFFF' %}{% endif %}
+{% if module_icon_2_color is empty %}{% set module_icon_2_color = 'FFFFFF' %}{% endif %}
+{% if module_icon_3_color is empty %}{% set module_icon_3_color = 'FFFFFF' %}{% endif %}
+{% if module_icon_4_color is empty %}{% set module_icon_4_color = 'FFFFFF' %}{% endif %}
+
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-theme-features-blocks" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-form-theme-features-blocks" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_name }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-bpr_id">{{ entry_features_blocks_per_row }}</label>
+            <div class="col-sm-10">
+              <select name="bpr_id" id="input-bpr_id" class="form-control">
+              <option value="12" {% if bpr_id == '12' %}{{ "selected=\"selected\"" }}{% endif %}>1</option>
+              <option value="6" {% if bpr_id == '6' %}{{ "selected=\"selected\"" }}{% endif %}>2</option>
+              <option value="4" {% if bpr_id == '4' %}{{ "selected=\"selected\"" }}{% endif %}>3</option>
+              <option value="3" {% if bpr_id == '3' %}{{ "selected=\"selected\"" }}{% endif %}>4</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_blocks_style">{{ entry_features_blocks_style }}</label>
+            <div class="col-sm-10">
+              <select name="features_blocks_style" id="input-features_blocks_style" class="form-control">
+                <option value="style-1" {% if features_blocks_style == 'style-1' %}{{ "selected=\"selected\"" }}{% endif %}>Style 1 - Left</option>
+                <option value="style-2" {% if features_blocks_style == 'style-2' %}{{ "selected=\"selected\"" }}{% endif %}>Style 2 - Center</option>
+                <option value="style-3" {% if features_blocks_style == 'style-3' %}{{ "selected=\"selected\"" }}{% endif %}>Style 3 - Column</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_bg_status">{{ entry_module_bg_status }}</label>
+            <div class="col-sm-10">
+              <select name="module_bg_status" id="input-module_bg_status" class="form-control">
+                <option value="1" {% if module_bg_status == '1' %}{{ "selected=\"selected\"" }}{% endif %}>Yes</option>
+                <option value="0" {% if module_bg_status == '0' %}{{ "selected=\"selected\"" }}{% endif %}>No</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_bg_color">{{ entry_module_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_bg_color" id="module_bg_color" value="{{ module_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_image_thumb">{{ entry_module_image_thumb }}</label>
+            <div class="col-sm-10">
+              <a href="" id="module_image_thumb" data-toggle="image" class="img-thumbnail"><img src="{{ module_image_thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+              <input type="hidden" name="module_image_custom" value="{{ module_image_custom }}" id="input-module_image_custom" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_title_color">{{ entry_module_title_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_title_color" id="module_title_color" value="{{ module_title_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_subtitle_color">{{ entry_module_subtitle_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_subtitle_color" id="module_subtitle_color" value="{{ module_subtitle_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <legend>Features Block 1</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_awesome_font_1">{{ entry_awesome_font }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][awesome_font_1]" value="{{ features_block[language.language_id].awesome_font_1 ? features_block[language.language_id].awesome_font_1 : '' }}" placeholder="{{ entry_awesome_font }}" class="form-control" />
+						</div>
+				{% endfor %}
+                <span class="k_help">Enter the name of an icon, for example: <b>car</b></span><br />
+                <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" class="link" style="margin-left:5px">Font Awesome Icon Collection &raquo;</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_1_bg_color">{{ entry_module_icon_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_1_bg_color" id="module_icon_1_bg_color" value="{{ module_icon_1_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_1_color">{{ entry_module_icon_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_1_color" id="module_icon_1_color" value="{{ module_icon_1_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_title_1">{{ entry_title }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][title_1]" value="{{ features_block[language.language_id].title_1 ? features_block[language.language_id].title_1 : '' }}" placeholder="{{ entry_title }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_subtitle_1">{{ entry_subtitle }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][subtitle_1]" value="{{ features_block[language.language_id].subtitle_1 ? features_block[language.language_id].subtitle_1 : '' }}" placeholder="{{ entry_subtitle }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>     
+          <div class="tab-pane">
+            <ul class="nav nav-tabs" id="language">
+              {% for language in languages %}
+              <li><a href="#language{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <div class="tab-content">
+              {% for language in languages %}
+              <div class="tab-pane" id="language{{ language.language_id }}">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-description_1{{ language.language_id }}">{{ entry_description }}</label>
+                  <div class="col-sm-10">
+                    <textarea name="module_description_1[{{ language.language_id }}][description_1]" placeholder="{{ entry_description }}" id="input-description_1{{ language.language_id }}" class="form-control summernote">{{ module_description_1[language.language_id].description_1 ? module_description_1[language.language_id].description_1 : '' }}</textarea>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+          <legend>Features Block 2</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_awesome_font_2">{{ entry_awesome_font }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][awesome_font_2]" value="{{ features_block[language.language_id].awesome_font_2 ? features_block[language.language_id].awesome_font_2 : '' }}" placeholder="{{ entry_awesome_font }}" class="form-control" />
+						</div>
+				{% endfor %}
+                <span class="k_help">Enter the name of an icon, for example: <b>car</b></span><br />
+                <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" class="link" style="margin-left:5px">Font Awesome Icon Collection &raquo;</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_2_bg_color">{{ entry_module_icon_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_2_bg_color" id="module_icon_2_bg_color" value="{{ module_icon_2_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_2_color">{{ entry_module_icon_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_2_color" id="module_icon_2_color" value="{{ module_icon_2_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_title_2">{{ entry_title }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][title_2]" value="{{ features_block[language.language_id].title_2 ? features_block[language.language_id].title_2 : '' }}" placeholder="{{ entry_title }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_subtitle_2">{{ entry_subtitle }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][subtitle_2]" value="{{ features_block[language.language_id].subtitle_2 ? features_block[language.language_id].subtitle_2 : '' }}" placeholder="{{ entry_subtitle }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>     
+          <div class="tab-pane">
+            <ul class="nav nav-tabs" id="language">
+              {% for language in languages %}
+              <li><a href="#language-2{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <div class="tab-content">
+              {% for language in languages %}
+              <div class="tab-pane" id="language-2{{ language.language_id }}">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-description_2{{ language.language_id }}">{{ entry_description }}</label>
+                  <div class="col-sm-10">
+                    <textarea name="module_description_2[{{ language.language_id }}][description_2]" placeholder="{{ entry_description }}" id="input-description_2{{ language.language_id }}" class="form-control summernote">{{ module_description_2[language.language_id].description_2 ? module_description_2[language.language_id].description_2 : '' }}</textarea>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+          <legend>Features Block 3</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_awesome_font_3">{{ entry_awesome_font }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][awesome_font_3]" value="{{ features_block[language.language_id].awesome_font_3 ? features_block[language.language_id].awesome_font_3 : '' }}" placeholder="{{ entry_awesome_font }}" class="form-control" />
+						</div>
+				{% endfor %}
+                <span class="k_help">Enter the name of an icon, for example: <b>car</b></span><br />
+                <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" class="link" style="margin-left:5px">Font Awesome Icon Collection &raquo;</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_3_bg_color">{{ entry_module_icon_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_3_bg_color" id="module_icon_3_bg_color" value="{{ module_icon_3_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_3_color">{{ entry_module_icon_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_3_color" id="module_icon_3_color" value="{{ module_icon_3_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_title_3">{{ entry_title }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][title_3]" value="{{ features_block[language.language_id].title_3 ? features_block[language.language_id].title_3 : '' }}" placeholder="{{ entry_title }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_subtitle_3">{{ entry_subtitle }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][subtitle_3]" value="{{ features_block[language.language_id].subtitle_3 ? features_block[language.language_id].subtitle_3 : '' }}" placeholder="{{ entry_subtitle }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>     
+          <div class="tab-pane">
+            <ul class="nav nav-tabs" id="language">
+              {% for language in languages %}
+              <li><a href="#language-3{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <div class="tab-content">
+              {% for language in languages %}
+              <div class="tab-pane" id="language-3{{ language.language_id }}">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-description_3{{ language.language_id }}">{{ entry_description }}</label>
+                  <div class="col-sm-10">
+                    <textarea name="module_description_3[{{ language.language_id }}][description_3]" placeholder="{{ entry_description }}" id="input-description_3{{ language.language_id }}" class="form-control summernote">{{ module_description_3[language.language_id].description_3 ? module_description_3[language.language_id].description_3 : '' }}</textarea>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+          <legend>Features Block 4</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_awesome_font_4">{{ entry_awesome_font }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][awesome_font_4]" value="{{ features_block[language.language_id].awesome_font_4 ? features_block[language.language_id].awesome_font_4 : '' }}" placeholder="{{ entry_awesome_font }}" class="form-control" />
+						</div>
+				{% endfor %}
+                <span class="k_help">Enter the name of an icon, for example: <b>car</b></span><br />
+                <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" class="link" style="margin-left:5px">Font Awesome Icon Collection &raquo;</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_4_bg_color">{{ entry_module_icon_bg_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_4_bg_color" id="module_icon_4_bg_color" value="{{ module_icon_4_bg_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-module_icon_4_color">{{ entry_module_icon_color }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="module_icon_4_color" id="module_icon_4_color" value="{{ module_icon_4_color }}" class="color {required:false,hash:true}" size="8" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_title_4">{{ entry_title }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][title_4]" value="{{ features_block[language.language_id].title_4 ? features_block[language.language_id].title_4 : '' }}" placeholder="{{ entry_title }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-features_block_subtitle_4">{{ entry_subtitle }}</label>
+            <div class="col-sm-10">
+                {% for language in languages %}
+						<div class="input-group pull-left">    
+                            <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                            <input type="text" name="features_block[{{ language.language_id }}][subtitle_4]" value="{{ features_block[language.language_id].subtitle_4 ? features_block[language.language_id].subtitle_4 : '' }}" placeholder="{{ entry_subtitle }}" class="form-control" />
+						</div>
+				{% endfor %}
+            </div>
+          </div>     
+          <div class="tab-pane">
+            <ul class="nav nav-tabs" id="language">
+              {% for language in languages %}
+              <li><a href="#language-4{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <div class="tab-content">
+              {% for language in languages %}
+              <div class="tab-pane" id="language-4{{ language.language_id }}">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-description_4{{ language.language_id }}">{{ entry_description }}</label>
+                  <div class="col-sm-10">
+                    <textarea name="module_description_4[{{ language.language_id }}][description_4]" placeholder="{{ entry_description }}" id="input-description_4{{ language.language_id }}" class="form-control summernote">{{ module_description_4[language.language_id].description_4 ? module_description_4[language.language_id].description_4 : '' }}</textarea>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+<link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
+<script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>  
+<script type="text/javascript"><!--
+{% for language in languages %}
+$('#input-description_1{{ language.language_id }}').summernote({height: 300});
+$('#input-description_2{{ language.language_id }}').summernote({height: 300});
+$('#input-description_3{{ language.language_id }}').summernote({height: 300});
+$('#input-description_4{{ language.language_id }}').summernote({height: 300});
+{% endfor %}
+//--></script> 
+  <script type="text/javascript"><!--
+$('#language li:first-child a').tab('show');
+$('#language-2 li:first-child a').tab('show');
+$('#language-3 li:first-child a').tab('show');
+$('#language-4 li:first-child a').tab('show');
+//--></script></div>
+<style type="text/css">
+.color {border:1px solid #CCC;border-radius:2px;margin-top:5px;padding:5px 6px 6px;}
+.panel-body legend {padding: 20px 0 15px;}
+.k_help {color:#999999;font-size:12px;padding-left:5px;}
+</style>
+<script type="text/javascript" src="view/javascript/jscolor/jscolor.js"></script>
+{{ footer }}
